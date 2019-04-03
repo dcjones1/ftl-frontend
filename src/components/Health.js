@@ -8,7 +8,7 @@ const Health = (props) => {
       x={props.position.x}
       y={props.position.y}
       fill="#7CFC00"
-      stroke-width="1"
+      strokeWidth="1"
       stroke="#000000"
     />
   )

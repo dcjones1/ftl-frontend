@@ -7,6 +7,7 @@ import Weapon from './Weapon'
 import Kestrel from './Kestrel'
 import EnemyShip from './EnemyShip'
 import Laser from './Laser'
+import EnemyLaser from './EnemyLaser'
 import { togglePlayerLaser } from '../redux/actions'
 import { connect } from 'react-redux'
 // import { gameHeight } from '../helpers/constants'
@@ -44,15 +45,12 @@ const Screen = (props) => {
   }
 
   const lasers = []
-  if (props.playerLaserOn) {
-    for(let i = 0; i < props.lasers; i++) {
-      const laserPosition = {
-        x: 250,
-        y: 128 + i * 200,
-      }
-      const path = ["M0,0 L520,94", "M0,0 L520,-74"]
-      lasers.push(<Laser key={i} position={laserPosition} path={path[i]} playerLaserOn={props.playerLaserOn} />)
+  for(let i = 0; i < props.lasers; i++) {
+    const laserPosition = {
+      x: 250,
+      y: 128 + i * 200,
     }
+    lasers.push(<Laser key={i} position={laserPosition} playerLaserOn={props.playerLaserOn} />)
   }
 
   const enemyLasers = []
@@ -62,8 +60,7 @@ const Screen = (props) => {
         x: 775,
         y: 161 + i * 150,
       }
-      const path = ["M0,0 L-520,94", "M0,0 L-520,-74"]
-      enemyLasers.push(<Laser key={i} position={laserPosition} path={path[i]} playerLaserOn={false} />)
+      enemyLasers.push(<EnemyLaser key={i} position={laserPosition} />)
     }
   }
 

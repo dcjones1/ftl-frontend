@@ -16,17 +16,24 @@ const styles = {
     alignItems: 'center',
     zIndex: '1',
   },
+  '@media (max-width: 800px)': {
+    container: {
+      display: 'block',
+    },
+  },
   column: {
     flex: 1,
     textAlign: 'center',
     color: 'white',
-    '& $p': {
-      fontSize: '1rem',
+    '& p': {
+      fontSize: '1.2rem',
+      width: '75%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
     },
-    '& $h2': {
-      fontSize: '2.5rem',
-    }
-
+    '& h2': {
+      fontSize: '2.7rem',
+    },
   },
   menuItems: {
     display: 'flex',

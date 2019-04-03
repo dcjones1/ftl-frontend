@@ -21,7 +21,7 @@ const Weapon = (props) => {
         x={props.position.x}
         y={props.position.y}
         fill="#FFF"
-        stroke-width="1"
+        strokeWidth="1"
         stroke="#000000"
       />
       <text

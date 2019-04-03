@@ -12,7 +12,7 @@ const initialGameState = {
 }
 
 const initialState = {
-  playing: true,
+  playing: false,
   gameState: initialGameState
 }
 
