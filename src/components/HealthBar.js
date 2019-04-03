@@ -13,22 +13,43 @@ const styles = {
 const HealthBar = (props) => {
   const { classes } = props
   return (
-    <g>
-      <text
-        x="30"
-        y="30"
-        className={classes.text}
-      >
-        Health
-      </text>
-      <rect
-        height="40"
-        width="400"
-        y="35"
-        x="30"
-        fill="#000000"
-      />
-    </g>
+    <React.Fragment>
+      {props.player ? (
+        <g>
+          <text
+            className={classes.text}
+            x="30"
+            y="30"
+          >
+            Health
+          </text>
+          <rect
+            width="400"
+            height="40"
+            x="30"
+            y="35"
+            fill="#000000"
+          />
+        </g>
+      ) : (
+        <g>
+          <text
+            className={classes.text}
+            x="600"
+            y="500"
+          >
+            Enemy Health
+          </text>
+          <rect
+            width="300"
+            height="40"
+            x="600"
+            y="505"
+            fill="#000000"
+          />
+        </g>
+      )}
+    </React.Fragment>
   )
 }
 

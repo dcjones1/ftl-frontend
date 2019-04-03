@@ -1,13 +1,18 @@
 import React from 'react'
-import { gameHeight, gameWidth, spaceWidth } from '../helpers/constants'
+import { gameHeight, spaceWidth } from '../helpers/constants'
+import withStyles from 'react-jss'
 
-const Space = () => {
-  const spaceStyle = {
+const styles = {
+  space: {
     fill: '#3f3f3f'
   }
+}
+
+const Space = (props) => {
+  const { classes } = props
   return (
     <rect
-      style={spaceStyle}
+      className={classes.space}
       x={0}
       y={0}
       height={gameHeight}
@@ -16,4 +21,4 @@ const Space = () => {
   )
 }
 
-export default Space
+export default withStyles(styles)(Space)

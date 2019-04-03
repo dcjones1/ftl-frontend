@@ -3,28 +3,36 @@ import withStyles from 'react-jss'
 
 const styles = {
   text: {
-    fill: 'white',
-    font: '2rem bold',
+    fill: 'black',
+    font: '1rem bold',
   }
 }
 
 const Weapon = (props) => {
   const { classes } = props
   return (
-    <rect
-      height="32"
-      width="10"
-      x={props.position.x}
-      y={props.position.y}
-      fill="#7CFC00"
-      stroke-width="1"
-      stroke="#000000"
+    <g
+      className={classes.g}
+      onClick={props.togglePlayerLaser}
     >
-      <text className={classes.text}>
-        Weapon info
+      <rect
+        height="100"
+        width="100"
+        x={props.position.x}
+        y={props.position.y}
+        fill="#FFF"
+        stroke-width="1"
+        stroke="#000000"
+      />
+      <text
+        className={classes.text}
+        x={props.position.x + 5}
+        y={props.position.y + 45}
+      >
+        click to fire!
       </text>
-    </rect>
+    </g>
   )
 }
 
-export default Weapon
+export default withStyles(styles)(Weapon)

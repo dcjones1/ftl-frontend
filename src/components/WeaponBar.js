@@ -13,9 +13,9 @@ const WeaponBar = (props) => {
   return (
     <g>
       <text
+        className={classes.text}
         x="150"
         y="800"
-        className={classes.text}
       >
         Weapons
       </text>

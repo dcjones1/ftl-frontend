@@ -12,18 +12,17 @@ class Game extends Component {
     }
   }
 
-
   render() {
-    console.log(this.props.playing)
+    const { playing, newGame } = this.props
+
     return (
       <div>
-        {this.props.playing ? (
+        {playing ? (
           <Screen
-            health={this.props.health}
           />
         ) : (
           <MainMenu
-            newGame={this.props.newGame}
+            newGame={newGame}
           />
         )}
       </div>
@@ -32,13 +31,13 @@ class Game extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  // prop: the equiv state
   playing: state.playing,
-  health: state.gameState.health
 })
 
 
 const mapDispatchToProps = {
-  newGame
+  newGame,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game)
