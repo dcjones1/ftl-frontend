@@ -3,7 +3,7 @@ import React from 'react'
 const Kestrel = () => {
   return (
       <g
-        id="svgg"
+        id="kestrel"
         transform="translate(100, 100)"
         width={400}
         height={262.3338257016248}

@@ -1,12 +1,12 @@
-import { NEW_GAME, TOGGLE_PLAYER_LASER } from '../actions'
+import { NEW_GAME, TOGGLE_PLAYER_LASER, DECREASE_PLAYER_HEALTH, DECREASE_ENEMY_HEALTH } from '../actions'
 
 const initialGameState = {
   health: 30,
   enemyHealth: 10,
   weapons: 1,
-  lasers: 2,
+  lasers: 1,
   playerLaserOn: false,
-  enemyLasers: 2,
+  enemyLasers: 1,
   playerAlive: true,
   enemyAlive: true,
 }
@@ -28,6 +28,24 @@ function reducer(state = initialState, action) {
         gameState: {
           ...state.gameState,
           playerLaserOn: !state.gameState.playerLaserOn
+        }
+      }
+
+    case DECREASE_PLAYER_HEALTH:
+      return {
+        ...state,
+        gameState: {
+          ...state.gameState,
+          health: state.gameState.health - 1
+        }
+      }
+
+    case DECREASE_ENEMY_HEALTH:
+      return {
+        ...state,
+        gameState: {
+          ...state.gameState,
+          enemyHealth: state.gameState.enemyHealth - 1
         }
       }
 

@@ -4,6 +4,7 @@ const EnemyShip = () => {
 
   return (
     <g
+      id="enemyShip"
       transform="rotate(180)
       translate(-900, -320)
       "

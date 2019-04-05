@@ -10,11 +10,19 @@ import Laser from './Laser'
 import EnemyLaser from './EnemyLaser'
 import { togglePlayerLaser } from '../redux/actions'
 import { connect } from 'react-redux'
-// import { gameHeight } from '../helpers/constants'
+import withStyles from 'react-jss'
+
+const styles = {
+  fill: {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%'
+  }
+}
 
 const Screen = (props) => {
-  // const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
-  // const viewBox
 
 
   const health = []
@@ -64,23 +72,20 @@ const Screen = (props) => {
     }
   }
 
+  const { classes } = props
   return (
     <svg
-      width="760"
-      height="722"
-      viewBox={'0 0 1000 950'}
-      preserveAspectRatio="xMaxYMax"
-      // height={window.innerHeight}
-      // width={window.innerWidth}
+      className={classes.fill}
+      viewBox={'0 0 1920 1080'}
+      preserveAspectRatio="xMidYMid"
     >
       <Space />
 
 
       {lasers}
-      <Kestrel />
-
-
       {enemyLasers}
+
+      <Kestrel />
       <EnemyShip />
 
 
@@ -115,4 +120,4 @@ const mapDispatchToProps = {
   togglePlayerLaser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Screen)
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Screen))

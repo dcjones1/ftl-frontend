@@ -1,5 +1,4 @@
 import React from 'react'
-import { gameHeight, spaceWidth } from '../helpers/constants'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -15,8 +14,12 @@ const Space = (props) => {
       className={classes.space}
       x={0}
       y={0}
-      height={gameHeight}
-      width={spaceWidth}
+      height="1080"
+      width="1920"
+      // x={-960}
+      // y={-540}
+      // height="2160"
+      // width="3840"
     />
   )
 }

@@ -26,13 +26,14 @@ const styles = {
     textAlign: 'center',
     color: 'white',
     '& p': {
+      fontFamily: 'Roboto',
       fontSize: '1.2rem',
       width: '75%',
       marginLeft: 'auto',
       marginRight: 'auto',
     },
     '& h2': {
-      fontSize: '2.7rem',
+      fontSize: '2rem',
     },
   },
   menuItems: {
@@ -44,7 +45,7 @@ const styles = {
     color: 'inherit',
     textDecoration: 'none',
     margin: '5px',
-    fontSize: '1.8rem',
+    fontSize: '1.5rem',
     '&:hover': {
         textDecoration: 'underline'
     }

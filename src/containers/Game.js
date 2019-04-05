@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import MainMenu from '../components/MainMenu'
 import Screen from '../components/Screen'
-import { newGame } from '../redux/actions'
+import { newGame, decreasePlayerHealth } from '../redux/actions'
 import { connect } from 'react-redux'
-// import Test from '../components/Test'
-// import { checkCollision } from '../helpers/formulas'
 
 class Game extends Component {
 
@@ -21,7 +19,6 @@ class Game extends Component {
       <div id="game" style={{height: '100vh', width: '100vw'}}>
         {playing ? (
           <Screen />
-          // {/* <Test /> */}
         ) : (
           <MainMenu
             newGame={newGame}
@@ -40,6 +37,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   newGame,
+  decreasePlayerHealth
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game)

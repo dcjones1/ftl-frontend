@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { decreaseEnemyHealth } from '../redux/actions'
+import { checkCollision } from '../helpers/formulas'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -8,22 +11,46 @@ const styles = {
 class Laser extends Component {
   state = {
     x: this.props.position.x,
+    y: this.props.position.y,
     intervalId: 5
   }
 
   componentDidMount() {
     let frame = () => {
-      if (this.state.x < 900) {
-        this.setState(state=> ({
-          x: state.x += 2
-        }))
+      if (this.state.x < 840) {
+        if (this.props.position.y < 200) {
+          this.setState(state=> ({
+            x: state.x += 2,
+            y: state.y += 0.11
+          }))
+        } else {
+          this.setState(state=> ({
+            x: state.x += 2,
+            y: state.y -= 0.08
+          }))
+        }
       } else {
-        this.setState({
-          x: this.props.position.x
-        })
+        setTimeout(() => {
+          this.setState({
+            x: this.props.position.x,
+            y: this.props.position.y
+          })
+        }, 5)
       }
     }
     setInterval(frame, this.state.intervalId)
+
+    const laser = document.querySelectorAll('#laser')
+    const enemyShip = document.querySelector('#enemyShip')
+    setInterval(() => {
+      if (checkCollision(enemyShip, laser)) {
+        this.setState({
+          x: this.props.position.x,
+          y: this.props.position.y
+        })
+        this.props.decreaseEnemyHealth()
+      }
+    }, this.state.intervalId)
   }
 
   componentWillUnmount() {
@@ -43,7 +70,7 @@ class Laser extends Component {
             ry="1"
             rx="14.5"
             cx={this.state.x}
-            cy={this.props.position.y}
+            cy={this.state.y}
             strokeWidth="0.2"
             fill="#0eed79"
           />
@@ -65,4 +92,8 @@ class Laser extends Component {
   }
 }
 
-export default withStyles(styles)(Laser)
+const mapDispatchToProps = {
+  decreaseEnemyHealth
+}
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Laser))
