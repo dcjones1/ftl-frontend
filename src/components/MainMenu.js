@@ -5,8 +5,8 @@ import '../space.css'
 const styles = {
   wrapper: {
     position: 'relative',
-    height: '100%',
-    width: '100%',
+    height: '100vh',
+    width: '100vw',
   },
   container: {
     position: 'relative',
@@ -19,6 +19,10 @@ const styles = {
   '@media (max-width: 800px)': {
     container: {
       display: 'block',
+      top: '23%',
+      '& p': {
+        marginBottom: '7%',
+      },
     },
   },
   column: {

@@ -20,12 +20,12 @@ class Laser extends Component {
       if (this.state.x < 840) {
         if (this.props.position.y < 200) {
           this.setState(state=> ({
-            x: state.x += 2,
-            y: state.y += 0.11
+            x: state.x += 3,
+            y: state.y += 0.13
           }))
         } else {
           this.setState(state=> ({
-            x: state.x += 2,
+            x: state.x += 3,
             y: state.y -= 0.08
           }))
         }
@@ -38,11 +38,11 @@ class Laser extends Component {
         }, 5)
       }
     }
-    setInterval(frame, this.state.intervalId)
+    this.int = setInterval(frame, this.state.intervalId)
 
     const laser = document.querySelectorAll('#laser')
     const enemyShip = document.querySelector('#enemyShip')
-    setInterval(() => {
+    this.coll = setInterval(() => {
       if (checkCollision(enemyShip, laser)) {
         this.setState({
           x: this.props.position.x,
@@ -54,7 +54,8 @@ class Laser extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.state.intervalId)
+    clearInterval(this.int)
+    clearInterval(this.coll)
   }
 
   render() {

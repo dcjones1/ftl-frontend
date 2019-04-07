@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { decreasePlayerHealth } from '../redux/actions'
+import { decreasePlayerHealth, decreaseShield, increaseShield } from '../redux/actions'
 import { checkCollision } from '../helpers/formulas'
 import withStyles from 'react-jss'
 
@@ -38,11 +38,11 @@ class EnemyLaser extends Component {
         }, 5)
       }
     }
-    setInterval(frame, this.state.intervalId)
+    this.int = setInterval(frame, this.state.intervalId)
 
     const enemyLaser = document.querySelectorAll('#enemyLaser')
     const playerShip = document.querySelector('#kestrel')
-    setInterval(() => {
+    this.coll = setInterval(() => {
       if (checkCollision(playerShip, enemyLaser)) {
         this.setState({
           x: this.props.position.x,
@@ -51,10 +51,30 @@ class EnemyLaser extends Component {
         this.props.decreasePlayerHealth()
       }
     }, this.state.intervalId)
+
+    const shield = document.querySelector('#shield')
+    this.shieldHit = setInterval(() => {
+      if (checkCollision(shield, enemyLaser)) {
+        this.setState({
+          x: this.props.position.x,
+          y: this.props.position.y
+        })
+        this.props.decreaseShield()
+        setTimeout(() => {
+          this.props.increaseShield()
+        }, 1000)
+      }
+    }, this.state.intervalId)
+  }
+
+  componentDidUpdate() {
+    //
   }
 
   componentWillUnmount() {
-    clearInterval(this.state.intervalId)
+    clearInterval(this.int)
+    clearInterval(this.coll)
+    clearInterval(this.shieldHit)
   }
 
   render() {
@@ -81,7 +101,9 @@ class EnemyLaser extends Component {
 }
 
 const mapDispatchToProps = {
-  decreasePlayerHealth
+  decreasePlayerHealth,
+  decreaseShield,
+  increaseShield
 }
 
 export default connect(null, mapDispatchToProps)(withStyles(styles)(EnemyLaser))

@@ -1,6 +1,6 @@
-export const checkCollision = (ship, lasers) => {
+export const checkCollision = (obj, lasers) => {
   for(let i = 0; i < lasers.length; i++) {
-    let rect1 = ship.getBoundingClientRect()
+    let rect1 = obj.getBoundingClientRect()
     let rect2 = lasers[i].getBoundingClientRect()
 
     return !(rect2.left > rect1.right ||
@@ -9,7 +9,3 @@ export const checkCollision = (ship, lasers) => {
             rect2.bottom < rect1.top)
   }
 }
-
-// export const moveElement = (id) => {
-//   let el = document.getElementById(`#${id}`)
-// }

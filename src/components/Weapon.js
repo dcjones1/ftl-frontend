@@ -4,7 +4,8 @@ import withStyles from 'react-jss'
 const styles = {
   text: {
     fill: 'black',
-    font: '1rem bold',
+    fontSize: '1.3rem',
+    wordWrap: 'break-word'
   }
 }
 
@@ -24,13 +25,24 @@ const Weapon = (props) => {
         strokeWidth="1"
         stroke="#000000"
       />
-      <text
+      {/* <text
         className={classes.text}
         x={props.position.x + 5}
         y={props.position.y + 45}
+        >
+        auto<br />
+        fire!
+      </text> */}
+      <foreignObject
+        width="100"
+        height="100"
+        x={props.position.x + 7}
+        y={props.position.y + 10}
       >
-        click to fire!
-      </text>
+        <p
+          className={classes.text}
+        >auto<br/>fire</p>
+      </foreignObject>
     </g>
   )
 }

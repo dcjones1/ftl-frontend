@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import MainMenu from '../components/MainMenu'
 import Screen from '../components/Screen'
-import { newGame, decreasePlayerHealth } from '../redux/actions'
+import Modal from '../components/Modal'
+import { newGame, decreasePlayerHealth, loseGame, winGame } from '../redux/actions'
 import { connect } from 'react-redux'
 
 class Game extends Component {
@@ -10,7 +11,15 @@ class Game extends Component {
     if (prevProps.playing !== this.props.playing) {
       this.forceUpdate()
     }
+    if (this.props.health === 0) {
+      this.props.loseGame()
+    } else if (this.props.enemyHealth === 0) {
+      window.alert("good job? but it isn't over.")
+      this.props.winGame()
+    }
   }
+
+
 
   render() {
     const { playing, newGame } = this.props
@@ -24,6 +33,7 @@ class Game extends Component {
             newGame={newGame}
           />
         )}
+        <Modal />
       </div>
     )
   }
@@ -31,13 +41,17 @@ class Game extends Component {
 
 const mapStateToProps = (state) => ({
   // prop: the equiv state
-  playing: state.playing,
+  playing: state.game.playing,
+  health: state.player.health,
+  enemyHealth: state.enemy.enemyHealth
 })
 
 
 const mapDispatchToProps = {
   newGame,
-  decreasePlayerHealth
+  decreasePlayerHealth,
+  loseGame,
+  winGame
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game)

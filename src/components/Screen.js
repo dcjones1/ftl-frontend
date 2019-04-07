@@ -5,9 +5,12 @@ import Health from './Health'
 import WeaponBar from './WeaponBar'
 import Weapon from './Weapon'
 import Kestrel from './Kestrel'
+// import Kestrel2 from './Kestrel2'
 import EnemyShip from './EnemyShip'
+import Shield from './Shield'
 import Laser from './Laser'
 import EnemyLaser from './EnemyLaser'
+import NextButton from './NextButton'
 import { togglePlayerLaser } from '../redux/actions'
 import { connect } from 'react-redux'
 import withStyles from 'react-jss'
@@ -18,7 +21,7 @@ const styles = {
     top: '0',
     left: '0',
     width: '100%',
-    height: '100%'
+    height: '100%',
   }
 }
 
@@ -81,11 +84,17 @@ const Screen = (props) => {
     >
       <Space />
 
+      {(props.shield > 0) ? (
+        <Shield show={true} />
+      ) : (
+        <Shield show={false} />
+      )}
 
       {lasers}
       {enemyLasers}
 
       <Kestrel />
+      {/* <Kestrel2 /> */}
       <EnemyShip />
 
 
@@ -99,21 +108,25 @@ const Screen = (props) => {
       {weapons}
 
 
+      <NextButton />
+
+
     </svg>
   )
 }
 
 const mapStateToProps = (state) => ({
   // prop: the equiv state
-  playing: state.playing,
-  health: state.gameState.health,
-  weapons: state.gameState.weapons,
-  lasers: state.gameState.lasers,
-  playerAlive: state.gameState.playerAlive,
-  playerLaserOn: state.gameState.playerLaserOn,
-  enemyLasers: state.gameState.enemyLasers,
-  enemyHealth: state.gameState.enemyHealth,
-  enemyAlive: state.gameState.enemyAlive,
+  playing: state.game.playing,
+  health: state.player.health,
+  weapons: state.player.weapons,
+  lasers: state.player.lasers,
+  shield: state.player.shield,
+  playerAlive: state.player.playerAlive,
+  playerLaserOn: state.player.playerLaserOn,
+  enemyLasers: state.enemy.enemyLasers,
+  enemyHealth: state.enemy.enemyHealth,
+  enemyAlive: state.enemy.enemyAlive,
 })
 
 const mapDispatchToProps = {

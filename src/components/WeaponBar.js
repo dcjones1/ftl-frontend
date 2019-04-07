@@ -4,7 +4,7 @@ import withStyles from 'react-jss'
 const styles = {
   text: {
     fill: 'white',
-    font: '2rem bold',
+    fontSize: '1.3rem',
   }
 }
 
