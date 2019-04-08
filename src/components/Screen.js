@@ -9,10 +9,13 @@ import Weapon from './Weapon'
 import Kestrel2 from './Kestrel2'
 import EnemyShip from './EnemyShip'
 import Power from './Power'
+import ShieldPower from './ShieldPower'
 import Shield from './Shield'
+import EnemyShield from './EnemyShield'
 import Laser from './Laser'
 import EnemyLaser from './EnemyLaser'
-import NextButton from './NextButton'
+import Scrap from './Scrap'
+import ShopButton from './ShopButton'
 import { togglePlayerLaser } from '../redux/actions'
 import { connect } from 'react-redux'
 import withStyles from 'react-jss'
@@ -80,9 +83,9 @@ const Screen = (props) => {
   for(let i = 0; i < props.lasers; i++) {
     const laserPosition = {
       x: 850,
-      y: 450 + i * 200,
+      y: 430 + i * 5,
     }
-    lasers.push(<Laser key={i} position={laserPosition} playerLaserOn={props.playerLaserOn} />)
+    lasers.push(<Laser key={i} id={i} position={laserPosition} playerLaserOn={props.playerLaserOn} enemyShield={props.enemyShield} />)
   }
 
   const enemyLasers = []
@@ -90,9 +93,9 @@ const Screen = (props) => {
     for(let i = 0; i < props.enemyLasers; i++) {
       const laserPosition = {
         x: 1380,
-        y: 362 + i * 150,
+        y: 362 + i * 10,
       }
-      enemyLasers.push(<EnemyLaser key={i} position={laserPosition} enemyLaserOn={props.enemyLaserOn} />)
+      enemyLasers.push(<EnemyLaser key={i} id={i} position={laserPosition} enemyLaserOn={props.enemyLaserOn} shield={props.shield} />)
     }
   }
 
@@ -111,6 +114,11 @@ const Screen = (props) => {
       ) : (
         <Shield show={false} />
       )}
+      {(props.enemyShield > 0) ? (
+        <EnemyShield show={true} />
+      ) : (
+        <EnemyShield show={false} />
+      )}
 
       {lasers}
       {enemyLasers}
@@ -120,6 +128,7 @@ const Screen = (props) => {
       <EnemyShip />
 
       {power}
+      <ShieldPower />
 
       <HealthBar player={true} />
       {health}
@@ -130,8 +139,8 @@ const Screen = (props) => {
       <WeaponBar />
       {weapons}
 
-
-      <NextButton />
+      <Scrap scrap={props.scrap} />
+      <ShopButton />
 
 
     </svg>
@@ -142,6 +151,7 @@ const mapStateToProps = (state) => ({
   // prop: the equiv state
   playing: state.game.playing,
   power: state.player.power,
+  scrap: state.player.scrap,
   health: state.player.health,
   weapons: state.player.weapons,
   lasers: state.player.lasers,
@@ -152,6 +162,7 @@ const mapStateToProps = (state) => ({
   enemyHealth: state.enemy.enemyHealth,
   enemyAlive: state.enemy.enemyAlive,
   enemyLaserOn: state.enemy.enemyLaserOn,
+  enemyShield: state.enemy.enemyShield,
 })
 
 const mapDispatchToProps = {

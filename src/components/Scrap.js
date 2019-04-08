@@ -9,35 +9,28 @@ const styles = {
   }
 }
 
-const NextButton = (props) => {
-
-  function handleClick() {
-    document.getElementById('id01').style.display = 'block'
-  }
-
-  const { classes } = props
+const Scrap = (props) => {
+  const { classes, scrap } = props
   return (
     <g>
       <rect
         x="680"
-        y="50"
-        width="300"
+        y="30"
+        width="250"
         height="75"
-        onClick={handleClick}
         stroke="#fff"
         strokeWidth="1"
       >
       </rect>
       <text
         className={classes.text}
-        x="700"
-        y="100"
-        onClick={handleClick}
+        x="705"
+        y="80"
       >
-        I'm a button.
+        Scrap: {scrap}
       </text>
     </g>
   )
 }
 
-export default withStyles(styles)(NextButton)
+export default withStyles(styles)(Scrap)

@@ -64,7 +64,7 @@ const MainMenu = (props) => {
       <div className="twinkling" />
       <div className={classes.container}>
         <div className={classes.column}>
-          <h2>Faster Than Light</h2>
+          <h2>c++</h2>
           <p>
             Here are the rules for the game.
             They could get long and complicated so I want to make sure the text wraps properly.

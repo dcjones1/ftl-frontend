@@ -5,6 +5,7 @@ const styles = {
   text: {
     fill: 'white',
     fontSize: '1.3rem',
+    userSelect: 'none',
   }
 }
 

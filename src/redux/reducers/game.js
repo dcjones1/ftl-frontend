@@ -1,7 +1,7 @@
 import { NEW_GAME, RESET_GAME, LOSE_GAME } from '../actions'
 
 const initialState = {
-  playing: true,
+  playing: false,
   gameOver: false,
 }
 

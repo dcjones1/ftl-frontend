@@ -5,7 +5,8 @@ const styles = {
   text: {
     fill: 'black',
     fontSize: '1.3rem',
-    wordWrap: 'break-word'
+    wordWrap: 'break-word',
+    userSelect: 'none',
   }
 }
 
@@ -25,14 +26,6 @@ const Weapon = (props) => {
         strokeWidth="1"
         stroke="#000000"
       />
-      {/* <text
-        className={classes.text}
-        x={props.position.x + 5}
-        y={props.position.y + 45}
-        >
-        auto<br />
-        fire!
-      </text> */}
       <foreignObject
         width="100"
         height="100"

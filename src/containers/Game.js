@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MainMenu from '../components/MainMenu'
 import Screen from '../components/Screen'
-import Modal from '../components/Modal'
+import Shop from '../components/Shop'
 import { newGame, decreasePlayerHealth, loseGame, winGame } from '../redux/actions'
 import { connect } from 'react-redux'
 
@@ -33,7 +33,7 @@ class Game extends Component {
             newGame={newGame}
           />
         )}
-        <Modal />
+        <Shop />
       </div>
     )
   }

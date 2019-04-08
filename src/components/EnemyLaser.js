@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { decreasePlayerHealth, decreaseShield, increaseShield } from '../redux/actions'
-import { checkCollision } from '../helpers/formulas'
+import { checkCollision, checkShieldHit } from '../helpers/formulas'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -18,15 +18,15 @@ class EnemyLaser extends Component {
   componentDidMount() {
     let frame = () => {
       if (this.state.x > 300) {
-        if (this.props.position.y < 200) {
+        if (this.props.position.y < 435) {
           this.setState(state=> ({
             x: state.x -= 2,
-            y: state.y += 0
+            y: state.y += 0.3
           }))
         } else {
           this.setState(state=> ({
             x: state.x -= 2,
-            y: state.y -= 0
+            y: state.y -= 0.3
           }))
         }
       } else {
@@ -40,7 +40,7 @@ class EnemyLaser extends Component {
     }
     this.int = setInterval(frame, this.state.intervalId)
 
-    const enemyLaser = document.querySelectorAll('#enemyLaser')
+    const enemyLaser = document.querySelector(`#enemyLaser${this.props.id}`)
     const playerShip = document.querySelector('#kestrel')
     this.coll = setInterval(() => {
       if (checkCollision(playerShip, enemyLaser)) {
@@ -54,7 +54,7 @@ class EnemyLaser extends Component {
 
     const shield = document.querySelector('#shield')
     this.shieldHit = setInterval(() => {
-      if (checkCollision(shield, enemyLaser)) {
+      if (checkShieldHit(shield, enemyLaser, this.props.shield)) {
         this.setState({
           x: this.props.position.x,
           y: this.props.position.y
@@ -80,7 +80,7 @@ class EnemyLaser extends Component {
       <React.Fragment>
         {this.props.enemyLaserOn ? (
           <ellipse
-            id="enemyLaser"
+            id={`enemyLaser${this.props.id}`}
             className={classes.laser}
             stroke="#000000"
             ry="1"
@@ -92,7 +92,7 @@ class EnemyLaser extends Component {
           />
         ) : (
           <ellipse
-            id="enemyLaser"
+            id={`enemyLaser${this.props.id}`}
             className={classes.laser}
             stroke="#000000"
             ry="1"

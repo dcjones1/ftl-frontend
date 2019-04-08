@@ -64,7 +64,7 @@ const GameOver = (props) => {
       <div className="twinkling" />
       <div className={classes.container}>
         <div className={classes.column}>
-          <h2>Faster Than Light</h2>
+          <h2>c++</h2>
           <p>
             Sorry, you <span className={classes.span}>lost.</span>
           </p>
