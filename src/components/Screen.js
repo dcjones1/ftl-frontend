@@ -1,5 +1,6 @@
 import React from 'react'
 import Space from './Space'
+import Star from './Star'
 import HealthBar from './HealthBar'
 import Health from './Health'
 import WeaponBar from './WeaponBar'
@@ -7,6 +8,7 @@ import Weapon from './Weapon'
 import Kestrel from './Kestrel'
 // import Kestrel2 from './Kestrel2'
 import EnemyShip from './EnemyShip'
+import Power from './Power'
 import Shield from './Shield'
 import Laser from './Laser'
 import EnemyLaser from './EnemyLaser'
@@ -26,6 +28,25 @@ const styles = {
 }
 
 const Screen = (props) => {
+
+  const stars = []
+  for(let i = 0; i < 800; i++) {
+    const starPosition = {
+      x: Math.floor(Math.random() * 1920),
+      y: Math.floor(Math.random() * 1080),
+    }
+    stars.push(<Star key={i} position={starPosition} />)
+  }
+
+
+  const power = []
+  for(let i = 0; i < props.power; i++) {
+    const powerPosition = {
+      x: 20,
+      y: 1040 - i * 15,
+    }
+    power.push(<Power key={i} position={powerPosition} />)
+  }
 
 
   const health = []
@@ -83,6 +104,7 @@ const Screen = (props) => {
       preserveAspectRatio="xMidYMid"
     >
       <Space />
+      {stars}
 
       {(props.shield > 0) ? (
         <Shield show={true} />
@@ -97,6 +119,7 @@ const Screen = (props) => {
       {/* <Kestrel2 /> */}
       <EnemyShip />
 
+      {power}
 
       <HealthBar player={true} />
       {health}
@@ -118,6 +141,8 @@ const Screen = (props) => {
 const mapStateToProps = (state) => ({
   // prop: the equiv state
   playing: state.game.playing,
+  stars: state.game.stars,
+  power: state.player.power,
   health: state.player.health,
   weapons: state.player.weapons,
   lasers: state.player.lasers,

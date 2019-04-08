@@ -23,6 +23,8 @@ const NextButton = (props) => {
         width="300"
         height="75"
         onClick={handleClick}
+        stroke="#fff"
+        strokeWidth="1"
       >
       </rect>
       <text

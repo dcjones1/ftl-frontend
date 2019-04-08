@@ -27,6 +27,8 @@ const HealthBar = (props) => {
           x="30"
           y="35"
           fill="#000000"
+          stroke="#fff"
+          strokeWidth="1"
         />
       </g>
     )
@@ -46,6 +48,8 @@ const HealthBar = (props) => {
          x="600"
          y="505"
          fill="#000000"
+         stroke="#fff"
+         strokeWidth="1"
        />
      </g>
    )

@@ -25,6 +25,8 @@ const WeaponBar = (props) => {
         x="150"
         y="820"
         fill="#000000"
+        stroke="#fff"
+        strokeWidth="1"
       />
     </g>
   )

@@ -3,7 +3,8 @@ import withStyles from 'react-jss'
 
 const styles = {
   space: {
-    fill: '#3f3f3f'
+    // fill: '#3f3f3f'
+    fill: '#000'
   }
 }
 

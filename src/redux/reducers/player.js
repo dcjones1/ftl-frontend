@@ -2,6 +2,7 @@ import { TOGGLE_PLAYER_LASER, DECREASE_PLAYER_HEALTH, RESET_GAME, LOSE_GAME, DEC
 
 const initialState = {
   health: 30,
+  power: 6,
   weapons: 1,
   lasers: 1,
   shield: 1,
