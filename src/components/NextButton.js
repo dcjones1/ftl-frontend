@@ -8,9 +8,10 @@ const styles = {
     userSelect: 'none',
   }
 }
+
 const NextButton = (props) => {
+
   function handleClick() {
-    console.log('click')
     document.getElementById('id01').style.display = 'block'
   }
 
@@ -18,8 +19,8 @@ const NextButton = (props) => {
   return (
     <g>
       <rect
-        x="1180"
-        y="100"
+        x="680"
+        y="50"
         width="300"
         height="75"
         onClick={handleClick}
@@ -29,8 +30,8 @@ const NextButton = (props) => {
       </rect>
       <text
         className={classes.text}
-        x="1200"
-        y="150"
+        x="700"
+        y="100"
         onClick={handleClick}
       >
         I'm a button.

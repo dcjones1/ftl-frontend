@@ -3,7 +3,6 @@ import { NEW_GAME, RESET_GAME, LOSE_GAME } from '../actions'
 const initialState = {
   playing: true,
   gameOver: false,
-  stars: 100,
 }
 
 export default (state = initialState, action) => {

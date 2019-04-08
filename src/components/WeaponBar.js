@@ -14,16 +14,16 @@ const WeaponBar = (props) => {
     <g>
       <text
         className={classes.text}
-        x="150"
-        y="800"
+        x="760"
+        y="925"
       >
         Weapons
       </text>
       <rect
         height="120"
         width="600"
-        x="150"
-        y="820"
+        x="750"
+        y="930"
         fill="#000000"
         stroke="#fff"
         strokeWidth="1"

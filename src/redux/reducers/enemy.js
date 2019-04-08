@@ -4,6 +4,7 @@ const initialState = {
   enemyHealth: 10,
   enemyLasers: 1,
   enemyAlive: true,
+  enemyLaserOn: false,
 }
 
 export default (state = initialState, action) => {

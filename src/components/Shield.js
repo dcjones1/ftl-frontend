@@ -1,19 +1,11 @@
 import React from 'react'
-import withStyles from 'react-jss'
-
-const styles = {
-  shield: {
-    margin: '0'
-  }
-}
-
 
 const Shield = (props) => {
-  const { show, classes } = props
+  const { show } = props
   let x, y
   if (show) {
-    x = "280"
-    y = "230"
+    x = "505"
+    y = "455"
   } else {
     x = "-1000"
     y = "-1000"
@@ -21,10 +13,9 @@ const Shield = (props) => {
   return (
     <ellipse
       id="shield"
-      // className={classes.laser}
       stroke="#000000"
-      rx="210"
-      ry="140"
+      rx="380"
+      ry="280"
       cx={x}
       cy={y}
       fillOpacity=".35"

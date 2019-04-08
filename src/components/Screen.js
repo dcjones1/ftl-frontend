@@ -5,8 +5,8 @@ import HealthBar from './HealthBar'
 import Health from './Health'
 import WeaponBar from './WeaponBar'
 import Weapon from './Weapon'
-import Kestrel from './Kestrel'
-// import Kestrel2 from './Kestrel2'
+// import Kestrel from './Kestrel'
+import Kestrel2 from './Kestrel2'
 import EnemyShip from './EnemyShip'
 import Power from './Power'
 import Shield from './Shield'
@@ -61,8 +61,8 @@ const Screen = (props) => {
   const enemyHealth = []
   for(let i = 0; i < props.enemyHealth; i++) {
     const healthPosition = {
-      x: 605 + i * 13.3,
-      y: 509,
+      x: 1205 + i * 13.3,
+      y: 39,
     }
     enemyHealth.push(<Health key={i} position={healthPosition} />)
   }
@@ -70,8 +70,8 @@ const Screen = (props) => {
   const weapons = []
   for(let i = 0; i < props.weapons; i++) {
     const weaponPosition = {
-      x: 160 + i * 145,
-      y: 830,
+      x: 760 + i * 145,
+      y: 940,
     }
     weapons.push(<Weapon key={i} position={weaponPosition} togglePlayerLaser={props.togglePlayerLaser} />)
   }
@@ -79,8 +79,8 @@ const Screen = (props) => {
   const lasers = []
   for(let i = 0; i < props.lasers; i++) {
     const laserPosition = {
-      x: 250,
-      y: 128 + i * 200,
+      x: 850,
+      y: 450 + i * 200,
     }
     lasers.push(<Laser key={i} position={laserPosition} playerLaserOn={props.playerLaserOn} />)
   }
@@ -89,10 +89,10 @@ const Screen = (props) => {
   if (props.enemyAlive) {
     for(let i = 0; i < props.enemyLasers; i++) {
       const laserPosition = {
-        x: 775,
-        y: 161 + i * 150,
+        x: 1380,
+        y: 362 + i * 150,
       }
-      enemyLasers.push(<EnemyLaser key={i} position={laserPosition} />)
+      enemyLasers.push(<EnemyLaser key={i} position={laserPosition} enemyLaserOn={props.enemyLaserOn} />)
     }
   }
 
@@ -115,8 +115,8 @@ const Screen = (props) => {
       {lasers}
       {enemyLasers}
 
-      <Kestrel />
-      {/* <Kestrel2 /> */}
+      {/* <Kestrel /> */}
+      <Kestrel2 />
       <EnemyShip />
 
       {power}
@@ -141,7 +141,6 @@ const Screen = (props) => {
 const mapStateToProps = (state) => ({
   // prop: the equiv state
   playing: state.game.playing,
-  stars: state.game.stars,
   power: state.player.power,
   health: state.player.health,
   weapons: state.player.weapons,
@@ -152,6 +151,7 @@ const mapStateToProps = (state) => ({
   enemyLasers: state.enemy.enemyLasers,
   enemyHealth: state.enemy.enemyHealth,
   enemyAlive: state.enemy.enemyAlive,
+  enemyLaserOn: state.enemy.enemyLaserOn,
 })
 
 const mapDispatchToProps = {

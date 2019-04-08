@@ -3,6 +3,7 @@ import React from 'react'
 const Kestrel2 = () => {
   return (
       <svg
+        id="kestrel"
         viewBox="0, 0, 1300, 1300"
         x="-300"
         y="100"

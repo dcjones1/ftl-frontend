@@ -8,7 +8,6 @@ const styles = {
   }
 }
 
-
 const HealthBar = (props) => {
   const { classes } = props
   if (props.player) {
@@ -37,16 +36,16 @@ const HealthBar = (props) => {
      <g>
        <text
          className={classes.text}
-         x="600"
-         y="500"
+         x="1200"
+         y="30"
        >
          Enemy Health
        </text>
        <rect
          width="300"
          height="40"
-         x="600"
-         y="505"
+         x="1200"
+         y="35"
          fill="#000000"
          stroke="#fff"
          strokeWidth="1"
@@ -55,47 +54,5 @@ const HealthBar = (props) => {
    )
  }
 }
-// const HealthBar = (props) => {
-//   const { classes } = props
-//   return (
-//     <React.Fragment>
-//       {props.player ? (
-//         <g>
-//           <text
-//             className={classes.text}
-//             x="30"
-//             y="30"
-//           >
-//             Health
-//           </text>
-//           <rect
-//             width="400"
-//             height="40"
-//             x="30"
-//             y="35"
-//             fill="#000000"
-//           />
-//         </g>
-//       ) : (
-//         <g>
-//           <text
-//             className={classes.text}
-//             x="600"
-//             y="500"
-//           >
-//             Enemy Health
-//           </text>
-//           <rect
-//             width="300"
-//             height="40"
-//             x="600"
-//             y="505"
-//             fill="#000000"
-//           />
-//         </g>
-//       )}
-//     </React.Fragment>
-//   )
-// }
 
 export default withStyles(styles)(HealthBar)

@@ -21,12 +21,12 @@ class EnemyLaser extends Component {
         if (this.props.position.y < 200) {
           this.setState(state=> ({
             x: state.x -= 2,
-            y: state.y += 0.1
+            y: state.y += 0
           }))
         } else {
           this.setState(state=> ({
             x: state.x -= 2,
-            y: state.y -= 0.1
+            y: state.y -= 0
           }))
         }
       } else {
@@ -67,10 +67,6 @@ class EnemyLaser extends Component {
     }, this.state.intervalId)
   }
 
-  componentDidUpdate() {
-    //
-  }
-
   componentWillUnmount() {
     clearInterval(this.int)
     clearInterval(this.coll)
@@ -82,19 +78,33 @@ class EnemyLaser extends Component {
 
     return (
       <React.Fragment>
-        {/* {this.props.playerLaserOn && ( */}
-        <ellipse
-          id="enemyLaser"
-          className={classes.laser}
-          stroke="#000000"
-          ry="1"
-          rx="14.5"
-          cx={this.state.x}
-          cy={this.state.y}
-          strokeWidth="0.2"
-          fill="#ffa500"
-        />
-        {/* )} */}
+        {this.props.enemyLaserOn ? (
+          <ellipse
+            id="enemyLaser"
+            className={classes.laser}
+            stroke="#000000"
+            ry="1"
+            rx="14.5"
+            cx={this.state.x}
+            cy={this.state.y}
+            strokeWidth="0.2"
+            fill="#ffa500"
+          />
+        ) : (
+          <ellipse
+            id="enemyLaser"
+            className={classes.laser}
+            stroke="#000000"
+            ry="1"
+            rx="14.5"
+            cx={this.props.position.x}
+            cy={this.props.position.y}
+            strokeWidth="0.2"
+            fill="#ffa500"
+          />
+        )}
+
+
       </React.Fragment>
     )
   }
