@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { increasePlayerHealth, decreaseScrap, addWeapon, toggleEnemyLaser, togglePlayerLaser, increaseShield } from '../redux/actions'
+import { increasePlayerHealth, decreaseScrap, addWeapon, setEnemyLaserOn, increaseShield } from '../redux/actions'
+import swal from 'sweetalert'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -29,10 +30,11 @@ const styles = {
   },
   'modalContent': {
     backgroundColor: '#fefefe',
-    margin: '7% auto',
+    margin: '5% auto',
     padding: '20px',
     border: '1px solid #888',
     width: '80%',
+    height: '80%',
   },
   close: {
     color: '#aaa',
@@ -65,10 +67,10 @@ const styles = {
 }
 
 const Shop = (props) => {
+  
   function handleClick() {
-    props.toggleEnemyLaser()
-    props.togglePlayerLaser()
-    document.getElementById('id01').style.display = 'none'
+    props.setEnemyLaserOn()
+    document.getElementById('shop').style.display = 'none'
   }
 
   function buyHealth() {
@@ -76,9 +78,9 @@ const Shop = (props) => {
       props.increasePlayerHealth()
       props.decreaseScrap(10)
     } else if (props.health === 30) {
-      window.alert('hey your health is full')
+      swal('hey your health is full')
     } else {
-      window.alert('not enough scrap!')
+      swal('not enough scrap!')
     }
   }
 
@@ -87,7 +89,7 @@ const Shop = (props) => {
       props.addWeapon()
       props.decreaseScrap(50)
     } else {
-      window.alert('not enough scrap!')
+      swal('not enough scrap!')
     }
   }
 
@@ -96,14 +98,14 @@ const Shop = (props) => {
       props.increaseShield()
       props.decreaseScrap(100)
     } else {
-      window.alert('not enough scrap!')
+      swal('not enough scrap!')
     }
   }
 
 
   const { classes } = props
   return (
-    <div id="id01" className={classes.modal}>
+    <div id="shop" className={classes.modal}>
       <div className={classes.modalContent}>
         <span className={classes.close} onClick={handleClick}>&times;</span>
         <div className={classes.info}>
@@ -150,8 +152,7 @@ const mapDispatchToProps = {
   increasePlayerHealth,
   decreaseScrap,
   addWeapon,
-  toggleEnemyLaser,
-  togglePlayerLaser,
+  setEnemyLaserOn,
   increaseShield
 }
 

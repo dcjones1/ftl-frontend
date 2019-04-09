@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleEnemyLaser, togglePlayerLaser } from '../redux/actions'
+import { setEnemyLaserOff, setPlayerLaserOff } from '../redux/actions'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -14,9 +14,9 @@ const styles = {
 const ShopButton = (props) => {
 
   function handleClick() {
-    props.toggleEnemyLaser()
-    props.togglePlayerLaser()
-    document.getElementById('id01').style.display = 'block'
+    props.setPlayerLaserOff()
+    props.setEnemyLaserOff()
+    document.getElementById('shop').style.display = 'block'
   }
 
   const { classes } = props
@@ -45,8 +45,8 @@ const ShopButton = (props) => {
 }
 
 const mapDispatchToProps = {
-  toggleEnemyLaser,
-  togglePlayerLaser
+  setEnemyLaserOff,
+  setPlayerLaserOff
 }
 
 export default connect(null, mapDispatchToProps)(withStyles(styles)(ShopButton))

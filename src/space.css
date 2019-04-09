@@ -1,16 +1,16 @@
-@keyframes move-twink-back {
+@keyframes move-twinkle-back {
    from {background-position:0 0;}
    to {background-position:-10000px 5000px;}
 }
-@-webkit-keyframes move-twink-back {
+@-webkit-keyframes move-twinkle-back {
    from {background-position:0 0;}
    to {background-position:-10000px 5000px;}
 }
-@-moz-keyframes move-twink-back {
+@-moz-keyframes move-twinkle-back {
    from {background-position:0 0;}
    to {background-position:-10000px 5000px;}
 }
-@-ms-keyframes move-twink-back {
+@-ms-keyframes move-twinkle-back {
    from {background-position:0 0;}
    to {background-position:-10000px 5000px;}
 }
@@ -35,9 +35,9 @@
  background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
  z-index: -1;
 
- -moz-animation:move-twink-back 200s linear infinite;
- -ms-animation:move-twink-back 200s linear infinite;
- -o-animation:move-twink-back 200s linear infinite;
- -webkit-animation:move-twink-back 200s linear infinite;
- animation:move-twink-back 200s linear infinite;
+ -moz-animation:move-twinkle-back 200s linear infinite;
+ -ms-animation:move-twinkle-back 200s linear infinite;
+ -o-animation:move-twinkle-back 200s linear infinite;
+ -webkit-animation:move-twinkle-back 200s linear infinite;
+ animation:move-twinkle-back 200s linear infinite;
 }

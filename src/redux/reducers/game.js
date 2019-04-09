@@ -1,7 +1,8 @@
-import { NEW_GAME, RESET_GAME, LOSE_GAME } from '../actions'
+import { NEW_GAME, RESET_GAME, LOSE_GAME, WIN_GAME, BEGIN_LEVEL } from '../actions'
 
 const initialState = {
-  playing: false,
+  playing: true,
+  nextLevel: false,
   gameOver: false,
 }
 
@@ -10,6 +11,12 @@ export default (state = initialState, action) => {
 
     case NEW_GAME:
       return { ...state, playing: true }
+
+    case WIN_GAME:
+      return { ...state, nextLevel: true }
+
+    case BEGIN_LEVEL:
+      return { ...state, nextLevel: false }
 
     case LOSE_GAME:
       return {

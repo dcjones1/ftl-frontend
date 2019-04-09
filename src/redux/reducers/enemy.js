@@ -1,4 +1,4 @@
-import { TOGGLE_ENEMY_LASER, DECREASE_ENEMY_HEALTH, RESET_GAME, WIN_GAME, DECREASE_ENEMY_SHIELD, INCREASE_ENEMY_SHIELD } from '../actions'
+import { ENEMY_LASER_ON, ENEMY_LASER_OFF, DECREASE_ENEMY_HEALTH, RESET_GAME, WIN_GAME, DECREASE_ENEMY_SHIELD, INCREASE_ENEMY_SHIELD } from '../actions'
 
 const initialState = {
   enemyHealth: 10,
@@ -11,8 +11,11 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    case TOGGLE_ENEMY_LASER:
-      return { ...state, enemyLaserOn: !state.enemyLaserOn }
+    case ENEMY_LASER_ON:
+      return { ...state, enemyLaserOn: true }
+
+    case ENEMY_LASER_OFF:
+      return { ...state, enemyLaserOn: false }
 
     case DECREASE_ENEMY_SHIELD:
       return { ...state, enemyShield: state.enemyShield - 1 }
@@ -23,15 +26,16 @@ export default (state = initialState, action) => {
     case DECREASE_ENEMY_HEALTH:
       return { ...state, enemyHealth: state.enemyHealth - 1 }
 
-      case WIN_GAME:
-        return {
-          ...state,
-          enemyHealth: 10,
-          enemyLasers: state.enemyLasers + 1,
-        }
+    case WIN_GAME:
+      return {
+        ...state,
+        enemyHealth: 10,
+        enemyLasers: state.enemyLasers + 1,
+        enemyLaserOn: false,
+      }
 
-      case RESET_GAME:
-        return initialState
+    case RESET_GAME:
+      return initialState
 
     default:
       return state

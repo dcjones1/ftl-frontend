@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import MainMenu from '../components/MainMenu'
 import Screen from '../components/Screen'
 import Shop from '../components/Shop'
-import { newGame, decreasePlayerHealth, loseGame, winGame } from '../redux/actions'
+import StoryMenu from '../components/StoryMenu'
+import { newGame, decreasePlayerHealth, loseGame, winGame, fetchLevel } from '../redux/actions'
 import { connect } from 'react-redux'
 
 class Game extends Component {
+
+  componentDidMount() {
+    this.props.fetchLevel()
+  }
 
   componentDidUpdate(prevProps) {
     if (prevProps.playing !== this.props.playing) {
@@ -34,6 +39,7 @@ class Game extends Component {
           />
         )}
         <Shop />
+        <StoryMenu />
       </div>
     )
   }
@@ -51,7 +57,8 @@ const mapDispatchToProps = {
   newGame,
   decreasePlayerHealth,
   loseGame,
-  winGame
+  winGame,
+  fetchLevel
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game)

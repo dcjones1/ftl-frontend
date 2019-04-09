@@ -16,7 +16,7 @@ import Laser from './Laser'
 import EnemyLaser from './EnemyLaser'
 import Scrap from './Scrap'
 import ShopButton from './ShopButton'
-import { togglePlayerLaser } from '../redux/actions'
+import { setPlayerLaserOn, setPlayerLaserOff, togglePlayerLaser } from '../redux/actions'
 import { connect } from 'react-redux'
 import withStyles from 'react-jss'
 
@@ -142,7 +142,6 @@ const Screen = (props) => {
       <Scrap scrap={props.scrap} />
       <ShopButton />
 
-
     </svg>
   )
 }
@@ -166,7 +165,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  togglePlayerLaser
+  togglePlayerLaser,
+  setPlayerLaserOn,
+  setPlayerLaserOff
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Screen))
