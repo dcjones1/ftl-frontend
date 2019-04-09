@@ -1,4 +1,4 @@
-import { TOGGLE_PLAYER_LASER, PLAYER_LASER_ON, PLAYER_LASER_OFF, DECREASE_SCRAP, DECREASE_PLAYER_HEALTH, INCREASE_PLAYER_HEALTH, RESET_GAME, LOSE_GAME, WIN_GAME, DECREASE_SHIELD, INCREASE_SHIELD, ADD_WEAPON } from '../actions'
+import { TOGGLE_PLAYER_LASER, PLAYER_LASER_ON, PLAYER_LASER_OFF, INCREASE_SCRAP, DECREASE_SCRAP, DECREASE_PLAYER_HEALTH, INCREASE_PLAYER_HEALTH, RESET_GAME, LOSE_GAME, WIN_GAME, DECREASE_SHIELD, INCREASE_SHIELD, ADD_WEAPON } from '../actions'
 
 const initialState = {
   health: 30,
@@ -22,6 +22,9 @@ export default (state = initialState, action) => {
 
     case PLAYER_LASER_OFF:
       return { ...state, playerLaserOn: false }
+
+    case INCREASE_SCRAP:
+      return { ...state, scrap: state.scrap + action.amount }
 
     case DECREASE_SCRAP:
       return { ...state, scrap: state.scrap - action.amount }
@@ -47,7 +50,8 @@ export default (state = initialState, action) => {
     case WIN_GAME:
       return { ...state,
         health: state.health + 1,
-        scrap: state.scrap + Math.floor(Math.random() * 45 + 5) 
+        scrap: state.scrap + Math.floor(Math.random() * 45 + 5),
+        playerLaserOn: false
       }
 
     case RESET_GAME:

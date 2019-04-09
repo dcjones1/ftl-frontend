@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import {  } from '../redux/actions'
+import { beginLevel, increaseScrap, decreasePlayerHealth, increasePlayerHealth } from '../redux/actions'
+import swal from 'sweetalert'
 import withStyles from 'react-jss'
 
 const styles = {
     modal: {
-    display: 'block',
+    display: 'none',
     position: 'relative',
     zIndex: 1,
     top: '15%',
@@ -74,20 +75,47 @@ class StoryMenu extends Component {
   }
 
 
-  handleClick() {
+  handleClick = () => {
     document.getElementById('story').style.display = 'none'
+    this.setState({
+      showOutcome: false
+    })
+    this.props.beginLevel()
   }
 
-  handleDec1() {
-
+  handleDec1 = () => {
+    this.setState({
+      showOutcome: true,
+      outcome: 'You and your crew search the ship. You find some parts to make repairs as well as some spare scrap.'
+    })
+    let scrap = Math.floor(Math.random() * 65 + 4)
+    this.props.increaseScrap(scrap)
+    if (this.props.health < 28) {
+      this.props.increasePlayerHealth()
+      this.props.increasePlayerHealth()
+      setTimeout(() => swal(`You gained 2 health and gained ${scrap} scrap`), 2000)
+    } else {
+      setTimeout(() => swal(`You gained ${scrap} scrap.`), 2000)
+    }
   }
 
-  handleDec2() {
-
+  handleDec2 = () => {
+    this.setState({
+      showOutcome: true,
+      outcome: 'The outpost explodes, damaging your ship. Reckless.'
+    })
+    if (this.props.health > 3) {
+      this.props.decreasePlayerHealth()
+      this.props.decreasePlayerHealth()
+      setTimeout(() => swal('You lost 2 health.'), 2000)
+    }
   }
 
-  handleDec3() {
-
+  handleDec3 = () => {
+    this.setState({
+      showOutcome: true,
+      outcome: 'The safe choice. As you leave, you hear explosions and the sounds of ships in battle.'
+    })
   }
 
   render() {
@@ -97,23 +125,28 @@ class StoryMenu extends Component {
         <div className={classes.modalContent}>
           <div className={classes.info}>
             <h3>
-              Decision Time:
+              Outpost Opportunity
             </h3>
             <p>
-              You arrive at an abandoned outpost with no signs of life. What should we do?
+              You arrive at an abandoned outpost with no signs of life. What should you do?
             </p>
           </div>
           <div className={classes.container}>
             <ol>
-              <li>Look for signs of life.</li>
-              <li>Shoot at it for fun.</li>
-              <li>Leave</li>
+              <li onClick={this.handleDec1}>Look for signs of life.</li>
+              <li onClick={this.handleDec2}>Shoot at it for fun.</li>
+              <li onClick={this.handleDec3}>Leave</li>
             </ol>
           </div>
           {this.state.showOutcome && (
             <p className={classes.info}>
               {this.state.outcome}
-              <button className={classes.button}>Next Level</button>
+              <button
+                className={classes.button}
+                onClick={this.handleClick}
+              >
+                Next Level
+              </button>
             </p>
           )}
         </div>
@@ -123,11 +156,14 @@ class StoryMenu extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+  health: state.player.health
 })
 
 const mapDispatchToProps = {
-
+  beginLevel,
+  increaseScrap,
+  increasePlayerHealth,
+  decreasePlayerHealth
 }
 
 

@@ -1,4 +1,4 @@
-import { ENEMY_LASER_ON, ENEMY_LASER_OFF, DECREASE_ENEMY_HEALTH, RESET_GAME, WIN_GAME, DECREASE_ENEMY_SHIELD, INCREASE_ENEMY_SHIELD } from '../actions'
+import { ENEMY_LASER_ON, ENEMY_LASER_OFF, DECREASE_ENEMY_HEALTH, RESET_GAME, WIN_GAME, DECREASE_ENEMY_SHIELD, INCREASE_ENEMY_SHIELD, BEGIN_LEVEL } from '../actions'
 
 const initialState = {
   enemyHealth: 10,
@@ -33,6 +33,9 @@ export default (state = initialState, action) => {
         enemyLasers: state.enemyLasers + 1,
         enemyLaserOn: false,
       }
+
+    case BEGIN_LEVEL:
+      return { ...state, enemyLaserOn: true }
 
     case RESET_GAME:
       return initialState

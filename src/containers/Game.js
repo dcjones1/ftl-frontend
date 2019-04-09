@@ -19,8 +19,8 @@ class Game extends Component {
     if (this.props.health === 0) {
       this.props.loseGame()
     } else if (this.props.enemyHealth === 0) {
-      window.alert("good job? but it isn't over.")
       this.props.winGame()
+      document.getElementById('story').style.display = 'block'
     }
   }
 

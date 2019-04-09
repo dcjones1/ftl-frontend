@@ -12,6 +12,7 @@ export const DECREASE_SHIELD = 'DECREASE_SHIELD'
 export const INCREASE_SHIELD = 'INCREASE_SHIELD'
 export const DECREASE_ENEMY_SHIELD = 'DECREASE_ENEMY_SHIELD'
 export const INCREASE_ENEMY_SHIELD = 'INCREASE_ENEMY_SHIELD'
+export const INCREASE_SCRAP = 'INCREASE_SCRAP'
 export const DECREASE_SCRAP = 'DECREASE_SCRAP'
 export const ADD_WEAPON = 'ADD_WEAPON'
 export const ENEMY_LASER_ON = 'ENEMY_LASER_ON'
@@ -89,6 +90,11 @@ export const loseGame = () => ({
 
 export const winGame = () => ({
   type: WIN_GAME
+})
+
+export const increaseScrap = (amount) => ({
+  type: INCREASE_SCRAP,
+  amount
 })
 
 export const decreaseScrap = (amount) => ({

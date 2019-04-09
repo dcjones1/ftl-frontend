@@ -61,7 +61,6 @@ class Laser extends Component {
         })
         this.props.decreaseEnemyShield()
         setTimeout(() => {
-          console.log('in timeout')
           this.props.increaseEnemyShield()
         }, 1000)
       }
