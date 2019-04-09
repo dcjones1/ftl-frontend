@@ -72,7 +72,7 @@ const MainMenu = (props) => {
           </p>
         </div>
         <div className={classes.column}>
-          <h2>FTL</h2>
+          {/* <h2>FTL</h2> */}
           <div className={classes.menuItems}>
             <a className={classes.link} href="localhost:3000">Continue</a>
             <a

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { increasePlayerHealth, decreaseScrap, addWeapon, toggleEnemyLaser, togglePlayerLaser } from '../redux/actions'
+import { increasePlayerHealth, decreaseScrap, addWeapon, toggleEnemyLaser, togglePlayerLaser, increaseShield } from '../redux/actions'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -8,11 +8,11 @@ const styles = {
     display: 'none',
     position: 'relative',
     zIndex: 1,
-    top: '25%',
+    top: '15%',
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '85%',
-    height: '50%',
+    height: '70%',
     overflow: 'auto',
     border: '1px solid white',
     backgroundColor: 'rgba(0,0,0,0.9)',
@@ -72,7 +72,7 @@ const Shop = (props) => {
   }
 
   function buyHealth() {
-    if (props.health < 30 && props.scrap > 10) {
+    if (props.health < 30 && props.scrap >= 10) {
       props.increasePlayerHealth()
       props.decreaseScrap(10)
     } else if (props.health === 30) {
@@ -83,9 +83,18 @@ const Shop = (props) => {
   }
 
   function buyWeapon() {
-    if (props.scrap > 50) {
+    if (props.scrap >= 50) {
       props.addWeapon()
       props.decreaseScrap(50)
+    } else {
+      window.alert('not enough scrap!')
+    }
+  }
+
+  function buyShield() {
+    if (props.scrap >= 100) {
+      props.increaseShield()
+      props.decreaseScrap(100)
     } else {
       window.alert('not enough scrap!')
     }
@@ -109,11 +118,12 @@ const Shop = (props) => {
           >
             Buy Health: 10 scrap
           </button>
-          {/* <button
+          <button
             className={classes.button}
-            >
+            onClick={buyShield}
+          >
             Upgrade Shield: 100 scrap
-          </button> */}
+          </button>
           <button
             className={classes.button}
             onClick={buyWeapon}
@@ -141,7 +151,8 @@ const mapDispatchToProps = {
   decreaseScrap,
   addWeapon,
   toggleEnemyLaser,
-  togglePlayerLaser
+  togglePlayerLaser,
+  increaseShield
 }
 
 

@@ -21,12 +21,12 @@ class EnemyLaser extends Component {
         if (this.props.position.y < 435) {
           this.setState(state=> ({
             x: state.x -= 2,
-            y: state.y += 0.3
+            y: state.y += 0.2
           }))
         } else {
           this.setState(state=> ({
             x: state.x -= 2,
-            y: state.y -= 0.3
+            y: state.y -= 0.1
           }))
         }
       } else {
