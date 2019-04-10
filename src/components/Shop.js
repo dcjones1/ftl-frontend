@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { increasePlayerHealth, decreaseScrap, addWeapon, setEnemyLaserOn, increaseShield } from '../redux/actions'
+import { increasePlayerHealth, decreaseScrap, addWeapon, setEnemyLaserOn, increaseShield, closeMenu } from '../redux/actions'
 import swal from 'sweetalert'
 import withStyles from 'react-jss'
 
@@ -20,12 +20,10 @@ const styles = {
     '&:hover': {
       color: 'black',
       textDecoration: 'none',
-      cursor: 'pointer',
     },
     '&:focus': {
       color: 'black',
       textDecoration: 'none',
-      cursor: 'pointer',
     },
   },
   'modalContent': {
@@ -63,13 +61,17 @@ const styles = {
     textDecoration: 'none',
     display: 'block',
     fontSize: '1rem',
+    '&:hover': {
+      cursor: 'pointer'
+    },
   }
 }
 
 const Shop = (props) => {
-  
+
   function handleClick() {
     props.setEnemyLaserOn()
+    props.closeMenu()
     document.getElementById('shop').style.display = 'none'
   }
 
@@ -153,7 +155,8 @@ const mapDispatchToProps = {
   decreaseScrap,
   addWeapon,
   setEnemyLaserOn,
-  increaseShield
+  increaseShield,
+  closeMenu
 }
 
 

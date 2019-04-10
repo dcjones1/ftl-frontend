@@ -19,6 +19,8 @@ export const ENEMY_LASER_ON = 'ENEMY_LASER_ON'
 export const ENEMY_LASER_OFF = 'ENEMY_LASER_OFF'
 export const FETCH_LEVEL = 'FETCH_LEVEL'
 export const BEGIN_LEVEL = 'BEGIN_LEVEL'
+export const OPEN_MENU = 'OPEN_MENU'
+export const CLOSE_MENU = 'CLOSE_MENU'
 
 export const fetchLevel = () => {
   return dispatch => {
@@ -108,4 +110,12 @@ export const addWeapon = () => ({
 
 export const beginLevel = () => ({
   type: BEGIN_LEVEL
+})
+
+export const openMenu = () => ({
+  type: OPEN_MENU
+})
+
+export const closeMenu = () => ({
+  type: CLOSE_MENU
 })

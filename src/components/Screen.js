@@ -10,6 +10,7 @@ import Kestrel2 from './Kestrel2'
 import EnemyShip from './EnemyShip'
 import Power from './Power'
 import ShieldPower from './ShieldPower'
+import LaserPower from './LaserPower'
 import Shield from './Shield'
 import EnemyShield from './EnemyShield'
 import Laser from './Laser'
@@ -129,6 +130,7 @@ const Screen = (props) => {
 
       {power}
       <ShieldPower />
+      <LaserPower />
 
       <HealthBar player={true} />
       {health}

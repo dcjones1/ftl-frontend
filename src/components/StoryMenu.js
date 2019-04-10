@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { beginLevel, increaseScrap, decreasePlayerHealth, increasePlayerHealth } from '../redux/actions'
+import { beginLevel, increaseScrap, decreasePlayerHealth, increasePlayerHealth, closeMenu } from '../redux/actions'
 import swal from 'sweetalert'
 import withStyles from 'react-jss'
 
 const styles = {
-    modal: {
+  modal: {
     display: 'none',
     position: 'relative',
     zIndex: 1,
@@ -17,14 +17,14 @@ const styles = {
     overflow: 'auto',
     border: '1px solid white',
     backgroundColor: 'rgba(0,0,0,0.9)',
-    '&:hover': {
-      color: 'black',
-      textDecoration: 'none',
-    },
-    '&:focus': {
-      color: 'black',
-      textDecoration: 'none',
-    },
+    // '&:hover': {
+    //   color: 'black',
+    //   textDecoration: 'none',
+    // },
+    // '&:focus': {
+    //   color: 'black',
+    //   textDecoration: 'none',
+    // },
   },
   'modalContent': {
     backgroundColor: '#fefefe',
@@ -48,7 +48,7 @@ const styles = {
       marginBottom: '3%',
       '&:hover': {
         cursor: 'pointer',
-        textDecoration: 'underline'
+        // textDecoration: 'underline'
       },
     },
   },
@@ -74,12 +74,39 @@ class StoryMenu extends Component {
     outcome: ''
   }
 
+  handleKeyDown = (e) => {
+    if (document.getElementById('story').style.display === 'block') {
+      switch (e.key) {
+        case "1":
+          this.handleDec1()
+          break;
+        case "2":
+          this.handleDec2()
+          break;
+        case "3":
+          this.handleDec3()
+          break;
+        default:
+          return null
+      }
+    }
+  }
+
+  componentDidMount = () => {
+    document.addEventListener("keydown", this.handleKeyDown)
+  }
+
+  componentWillUnmount = () => {
+    document.removeEventListener("keydown", this.handleKeyDown)
+  }
+
 
   handleClick = () => {
     document.getElementById('story').style.display = 'none'
     this.setState({
       showOutcome: false
     })
+    this.props.closeMenu()
     this.props.beginLevel()
   }
 
@@ -118,6 +145,7 @@ class StoryMenu extends Component {
     })
   }
 
+
   render() {
     const { classes } = this.props
     return (
@@ -132,7 +160,7 @@ class StoryMenu extends Component {
             </p>
           </div>
           <div className={classes.container}>
-            <ol>
+            <ol id="options">
               <li onClick={this.handleDec1}>Look for signs of life.</li>
               <li onClick={this.handleDec2}>Shoot at it for fun.</li>
               <li onClick={this.handleDec3}>Leave</li>
@@ -163,7 +191,8 @@ const mapDispatchToProps = {
   beginLevel,
   increaseScrap,
   increasePlayerHealth,
-  decreasePlayerHealth
+  decreasePlayerHealth,
+  closeMenu
 }
 
 
