@@ -8,7 +8,7 @@ import Weapon from './Weapon'
 // import Kestrel from './Kestrel'
 import Kestrel2 from './Kestrel2'
 import EnemyShip from './EnemyShip'
-import Power from './Power'
+// import Power from './Power'
 import ShieldPower from './ShieldPower'
 import LaserPower from './LaserPower'
 import Shield from './Shield'
@@ -43,14 +43,14 @@ const Screen = (props) => {
   }
 
 
-  const power = []
-  for(let i = 0; i < props.power; i++) {
-    const powerPosition = {
-      x: 20,
-      y: 1040 - i * 15,
-    }
-    power.push(<Power key={i} position={powerPosition} />)
-  }
+  // const power = []
+  // for(let i = 0; i < props.power; i++) {
+  //   const powerPosition = {
+  //     x: 20,
+  //     y: 1040 - i * 15,
+  //   }
+  //   power.push(<Power key={i} position={powerPosition} />)
+  // }
 
 
   const health = []
@@ -128,7 +128,7 @@ const Screen = (props) => {
       <Kestrel2 />
       <EnemyShip />
 
-      {power}
+      {/* {power} */}
       <ShieldPower />
       <LaserPower />
 

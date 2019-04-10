@@ -36,6 +36,13 @@ const styles = {
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+    '& li': {
+      fontFamily: 'Roboto',
+      fontSize: '1.2rem',
+      width: '75%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
     '& h2': {
       fontSize: '2rem',
     },
@@ -66,10 +73,13 @@ const MainMenu = (props) => {
         <div className={classes.column}>
           <h2>c++</h2>
           <p>
-            Here are the rules for the game.
-            They could get long and complicated so I want to make sure the text wraps properly.
-            Otherwise, that could get pretty annoying.
+            Welcome! A few things to note before you begin:
           </p>
+          <ul>
+            <li>To fire your lasers, press the spacebar or 'autofire' button just once. This turns them on. Do it once more to turn them off. After each game event (opening the shop, moving to the next level), they will turn off and have to be restarted!</li><br/>
+            <li>There is a shop available to upgrade your shop. Top middle, the button labeled 'Shop'. Click it!</li><br/>
+            <li>Finally, you can see the level of all your systems on the bottom left. Each bar represents a level. 3 bars, 3 shields, easy!</li>
+          </ul>
         </div>
         <div className={classes.column}>
           {/* <h2>FTL</h2> */}

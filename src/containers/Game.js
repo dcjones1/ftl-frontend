@@ -21,6 +21,10 @@ class Game extends Component {
     document.addEventListener('keydown', this.handleKeydown)
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeydown)
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.playing !== this.props.playing) {
       this.forceUpdate()

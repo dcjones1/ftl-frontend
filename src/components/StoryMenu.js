@@ -71,11 +71,12 @@ const styles = {
 class StoryMenu extends Component {
   state = {
     showOutcome: false,
-    outcome: ''
+    outcome: '',
+    decisionMade: false
   }
 
   handleKeyDown = (e) => {
-    if (document.getElementById('story').style.display === 'block') {
+    if (document.getElementById('story').style.display === 'block' && !this.state.decisionMade) {
       switch (e.key) {
         case "1":
           this.handleDec1()
@@ -101,48 +102,58 @@ class StoryMenu extends Component {
   }
 
 
-  handleClick = () => {
+  handleNext = () => {
     document.getElementById('story').style.display = 'none'
     this.setState({
-      showOutcome: false
+      showOutcome: false,
+      decisionMade: false
     })
     this.props.closeMenu()
     this.props.beginLevel()
   }
 
   handleDec1 = () => {
-    this.setState({
-      showOutcome: true,
-      outcome: 'You and your crew search the ship. You find some parts to make repairs as well as some spare scrap.'
-    })
-    let scrap = Math.floor(Math.random() * 65 + 4)
-    this.props.increaseScrap(scrap)
-    if (this.props.health < 28) {
-      this.props.increasePlayerHealth()
-      this.props.increasePlayerHealth()
-      setTimeout(() => swal(`You gained 2 health and gained ${scrap} scrap`), 2000)
-    } else {
-      setTimeout(() => swal(`You gained ${scrap} scrap.`), 2000)
+    if (!this.state.decisionMade) {
+      this.setState({
+        showOutcome: true,
+        outcome: 'You and your crew search the ship. You find some parts to make repairs as well as some spare scrap.',
+        decisionMade: true
+      })
+      let scrap = Math.floor(Math.random() * 65 + 4)
+      this.props.increaseScrap(scrap)
+      if (this.props.health < 28) {
+        this.props.increasePlayerHealth()
+        this.props.increasePlayerHealth()
+        setTimeout(() => swal(`You gained 2 health and gained ${scrap} scrap`), 2000)
+      } else {
+        setTimeout(() => swal(`You gained ${scrap} scrap.`), 2000)
+      }
     }
   }
 
   handleDec2 = () => {
-    this.setState({
-      showOutcome: true,
-      outcome: 'The outpost explodes, damaging your ship. Reckless.'
-    })
-    if (this.props.health > 3) {
-      this.props.decreasePlayerHealth()
-      this.props.decreasePlayerHealth()
-      setTimeout(() => swal('You lost 2 health.'), 2000)
+    if (!this.state.decisionMade) {
+      this.setState({
+        showOutcome: true,
+        outcome: 'The outpost explodes, damaging your ship. Reckless.',
+        decisionMade: true
+      })
+      if (this.props.health > 3) {
+        this.props.decreasePlayerHealth()
+        this.props.decreasePlayerHealth()
+        setTimeout(() => swal('You lost 2 health.'), 2000)
+      }
     }
   }
 
   handleDec3 = () => {
-    this.setState({
-      showOutcome: true,
-      outcome: 'The safe choice. As you leave, you hear explosions and the sounds of ships in battle.'
-    })
+    if (!this.state.decisionMade) {
+      this.setState({
+        showOutcome: true,
+        outcome: 'The safe choice. As you leave, you hear explosions and the sounds of ships in battle.',
+        decisionMade: true
+      })
+    }
   }
 
 
@@ -171,7 +182,7 @@ class StoryMenu extends Component {
               {this.state.outcome}
               <button
                 className={classes.button}
-                onClick={this.handleClick}
+                onClick={this.handleNext}
               >
                 Next Level
               </button>

@@ -14,10 +14,12 @@ const styles = {
 const ShopButton = (props) => {
 
   function handleClick() {
-    props.setPlayerLaserOff()
-    props.setEnemyLaserOff()
-    props.openMenu()
-    document.getElementById('shop').style.display = 'block'
+    if (!props.menuOpen) {
+      props.setPlayerLaserOff()
+      props.setEnemyLaserOff()
+      props.openMenu()
+      document.getElementById('shop').style.display = 'block'
+    }
   }
 
   const { classes } = props
@@ -45,10 +47,14 @@ const ShopButton = (props) => {
   )
 }
 
+const mapStateToProps = (state) => ({
+  menuOpen: state.game.menuOpen
+})
+
 const mapDispatchToProps = {
   setEnemyLaserOff,
   setPlayerLaserOff,
   openMenu
 }
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(ShopButton))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ShopButton))
