@@ -2,6 +2,7 @@ export const NEW_GAME = 'NEW_GAME'
 export const RESET_GAME = 'RESET_GAME'
 export const LOSE_GAME = 'LOSE_GAME'
 export const WIN_GAME = 'WIN_GAME'
+export const ACTUALLY_WIN_GAME = 'ACTUALLY_WIN_GAME'
 export const TOGGLE_PLAYER_LASER = 'TOGGLE_PLAYER_LASER'
 export const PLAYER_LASER_ON = 'PLAYER_LASER_ON'
 export const PLAYER_LASER_OFF = 'PLAYER_LASER_OFF'
@@ -40,6 +41,10 @@ export const fetchLevel = (level) => {
     })
   }
 }
+
+export const actuallyWinGame = () => ({
+  type: ACTUALLY_WIN_GAME
+})
 
 export const newGame = () => ({
   type: NEW_GAME

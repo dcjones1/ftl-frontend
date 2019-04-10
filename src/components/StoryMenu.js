@@ -124,15 +124,15 @@ class StoryMenu extends Component {
       if (this.props.health < 28 && this.props.health > 14) {
         this.props.increasePlayerHealth()
         this.props.increasePlayerHealth()
-        setTimeout(() => swal(`You gained 2 health and gained ${scrap} scrap`), 2000)
+        setTimeout(() => swal(`You gained 2 health and gained ${scrap} scrap`), 1300)
       } else if (this.props.health < 15 && this.props.health > 3){
         this.props.increasePlayerHealth()
         this.props.increasePlayerHealth()
         this.props.increasePlayerHealth()
         this.props.increasePlayerHealth()
-        setTimeout(() => swal(`You gained 4 health and gained ${scrap} scrap`), 2000)
+        setTimeout(() => swal(`You gained 4 health and gained ${scrap} scrap`), 1300)
       } else {
-        setTimeout(() => swal(`You gained ${scrap} scrap.`), 2000)
+        setTimeout(() => swal(`You gained ${scrap} scrap.`), 1300)
       }
     }
   }
@@ -147,7 +147,7 @@ class StoryMenu extends Component {
       if (this.props.health > 3) {
         this.props.decreasePlayerHealth()
         this.props.decreasePlayerHealth()
-        setTimeout(() => swal('You lost 2 health.'), 2000)
+        setTimeout(() => swal('You lost 2 health.'), 1300)
       }
     }
   }

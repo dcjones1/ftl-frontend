@@ -52,7 +52,7 @@ const styles = {
   }
 }
 
-const GameOver = (props) => {
+const GameWin = (props) => {
   function reset() {
     props.resetGame()
   }
@@ -67,7 +67,10 @@ const GameOver = (props) => {
         <div className={classes.column}>
           <h2>c++</h2>
           <p>
-            Sorry, you <span className={classes.span}>lost.</span>
+            You won!!
+          </p>
+          <p>
+            Score: 10000000
           </p>
           <Link
             className={classes.link}
@@ -86,4 +89,4 @@ const mapDispatchToProps = {
   resetGame
 }
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(GameOver))
+export default connect(null, mapDispatchToProps)(withStyles(styles)(GameWin))

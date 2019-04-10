@@ -32,14 +32,7 @@ const styles = {
     '& p': {
       fontFamily: 'Roboto',
       fontSize: '1.2rem',
-      width: '75%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
-    '& li': {
-      fontFamily: 'Roboto',
-      fontSize: '1.2rem',
-      width: '75%',
+      width: '80%',
       marginLeft: 'auto',
       marginRight: 'auto',
     },
@@ -75,11 +68,18 @@ const MainMenu = (props) => {
           <p>
             Welcome! A few things to note before you begin:
           </p>
-          <ul>
-            <li>To fire your lasers, press the spacebar or 'autofire' button just once. This turns them on. Do it once more to turn them off. After each game event (opening the shop, moving to the next level), they will turn off and have to be restarted!</li><br/>
-            <li>There is a shop available to upgrade your shop. Top middle, the button labeled 'Shop'. Click it!</li><br/>
-            <li>Finally, you can see the level of all your systems on the bottom left. Each bar represents a level. 3 bars, 3 shields, easy!</li>
-          </ul>
+          <p>
+            To fire your lasers, press the spacebar or 'autofire' button just once. This turns them on. Do it once more to turn them off. After each game event (opening the shop, moving to the next level), they will turn off and have to be restarted!
+          </p>
+          <p>
+            There is a shop available to upgrade your shop. Top middle, the button labeled 'Shop'. Click it!
+          </p>
+          <p>
+            Finally, you can see the level of all your systems on the bottom left. Each bar represents a level. 3 bars, 3 shields, easy!
+          </p>
+          <p>
+            There will be 5 levels of increasing difficulty to beat.
+          </p>
         </div>
         <div className={classes.column}>
           {/* <h2>FTL</h2> */}

@@ -1,4 +1,4 @@
-import { NEW_GAME, RESET_GAME, LOSE_GAME, WIN_GAME, BEGIN_LEVEL, OPEN_MENU, CLOSE_MENU } from '../actions'
+import { NEW_GAME, RESET_GAME, LOSE_GAME, WIN_GAME, ACTUALLY_WIN_GAME, BEGIN_LEVEL, OPEN_MENU, CLOSE_MENU } from '../actions'
 
 const initialState = {
   playing: false,
@@ -6,6 +6,7 @@ const initialState = {
   gameOver: false,
   menuOpen: false,
   currentLevel: 1,
+  gameWon: false,
 }
 
 export default (state = initialState, action) => {
@@ -15,12 +16,21 @@ export default (state = initialState, action) => {
       return { ...state, playing: true }
 
     case WIN_GAME:
-      return { ...state, nextLevel: true }
+      return { ...state,
+        nextLevel: true,
+        currentLevel: state.currentLevel + 1
+    }
+
+    case ACTUALLY_WIN_GAME:
+      return { ...state,
+        gameWon: true,
+        gameOver: true 
+      }
 
     case BEGIN_LEVEL:
       return { ...state,
         nextLevel: false,
-        currentLevel: state.currentLevel + 1
+        // currentLevel: state.currentLevel + 1
       }
 
     case OPEN_MENU:

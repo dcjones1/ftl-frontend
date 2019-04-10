@@ -3,7 +3,7 @@ import MainMenu from '../components/MainMenu'
 import Screen from '../components/Screen'
 import Shop from '../components/Shop'
 import StoryMenu from '../components/StoryMenu'
-import { newGame, decreasePlayerHealth, loseGame, winGame, fetchLevel, openMenu, togglePlayerLaser } from '../redux/actions'
+import { newGame, decreasePlayerHealth, loseGame, winGame, fetchLevel, openMenu, togglePlayerLaser, actuallyWinGame } from '../redux/actions'
 import { connect } from 'react-redux'
 
 class Game extends Component {
@@ -30,6 +30,10 @@ class Game extends Component {
     }
     if (this.props.health === 0) {
       this.props.loseGame()
+
+    } else if (this.props.enemyHealth === 0 && this.props.currentLevel === 5) {
+      this.props.actuallyWinGame()
+      
     } else if (this.props.enemyHealth === 0) {
       this.props.winGame()
       this.props.fetchLevel(this.props.currentLevel)
@@ -76,7 +80,8 @@ const mapDispatchToProps = {
   winGame,
   fetchLevel,
   openMenu,
-  togglePlayerLaser
+  togglePlayerLaser,
+  actuallyWinGame
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game)
