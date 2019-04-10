@@ -5,6 +5,7 @@ const initialState = {
   nextLevel: false,
   gameOver: false,
   menuOpen: false,
+  currentLevel: 1,
 }
 
 export default (state = initialState, action) => {
@@ -17,7 +18,10 @@ export default (state = initialState, action) => {
       return { ...state, nextLevel: true }
 
     case BEGIN_LEVEL:
-      return { ...state, nextLevel: false }
+      return { ...state,
+        nextLevel: false,
+        currentLevel: state.currentLevel + 1
+      }
 
     case OPEN_MENU:
       return { ...state, menuOpen: true }

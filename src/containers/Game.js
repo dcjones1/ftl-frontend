@@ -17,7 +17,6 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchLevel()
     document.addEventListener('keydown', this.handleKeydown)
   }
 
@@ -33,6 +32,7 @@ class Game extends Component {
       this.props.loseGame()
     } else if (this.props.enemyHealth === 0) {
       this.props.winGame()
+      this.props.fetchLevel(this.props.currentLevel)
       this.props.openMenu()
       document.getElementById('story').style.display = 'block'
     }
@@ -64,7 +64,8 @@ const mapStateToProps = (state) => ({
   menuOpen: state.game.menuOpen,
   playing: state.game.playing,
   health: state.player.health,
-  enemyHealth: state.enemy.enemyHealth
+  enemyHealth: state.enemy.enemyHealth,
+  currentLevel: state.game.currentLevel
 })
 
 

@@ -22,11 +22,22 @@ export const BEGIN_LEVEL = 'BEGIN_LEVEL'
 export const OPEN_MENU = 'OPEN_MENU'
 export const CLOSE_MENU = 'CLOSE_MENU'
 
-export const fetchLevel = () => {
+export const fetchLevel = (level) => {
   return dispatch => {
-    fetch('http://localhost:3000/api/v1/ships')
+    let realLev
+    if (level % 3 === 0) {
+      realLev = 3
+    } else {
+      realLev = level % 3
+    }
+    fetch(`http://localhost:3000/api/v1/levels/${realLev}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+      dispatch({
+        type: FETCH_LEVEL,
+        data
+      })
+    })
   }
 }
 

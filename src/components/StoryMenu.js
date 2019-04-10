@@ -116,15 +116,21 @@ class StoryMenu extends Component {
     if (!this.state.decisionMade) {
       this.setState({
         showOutcome: true,
-        outcome: 'You and your crew search the ship. You find some parts to make repairs as well as some spare scrap.',
+        outcome: this.props.consequence[0],
         decisionMade: true
       })
       let scrap = Math.floor(Math.random() * 65 + 4)
       this.props.increaseScrap(scrap)
-      if (this.props.health < 28) {
+      if (this.props.health < 28 && this.props.health > 14) {
         this.props.increasePlayerHealth()
         this.props.increasePlayerHealth()
         setTimeout(() => swal(`You gained 2 health and gained ${scrap} scrap`), 2000)
+      } else if (this.props.health < 15 && this.props.health > 3){
+        this.props.increasePlayerHealth()
+        this.props.increasePlayerHealth()
+        this.props.increasePlayerHealth()
+        this.props.increasePlayerHealth()
+        setTimeout(() => swal(`You gained 4 health and gained ${scrap} scrap`), 2000)
       } else {
         setTimeout(() => swal(`You gained ${scrap} scrap.`), 2000)
       }
@@ -135,7 +141,7 @@ class StoryMenu extends Component {
     if (!this.state.decisionMade) {
       this.setState({
         showOutcome: true,
-        outcome: 'The outpost explodes, damaging your ship. Reckless.',
+        outcome: this.props.consequence[1],
         decisionMade: true
       })
       if (this.props.health > 3) {
@@ -150,7 +156,7 @@ class StoryMenu extends Component {
     if (!this.state.decisionMade) {
       this.setState({
         showOutcome: true,
-        outcome: 'The safe choice. As you leave, you hear explosions and the sounds of ships in battle.',
+        outcome: this.props.consequence[2],
         decisionMade: true
       })
     }
@@ -158,23 +164,23 @@ class StoryMenu extends Component {
 
 
   render() {
-    const { classes } = this.props
+    const { classes, title, story, choices } = this.props
     return (
       <div id="story" className={classes.modal}>
         <div className={classes.modalContent}>
           <div className={classes.info}>
             <h3>
-              Outpost Opportunity
+              {title}
             </h3>
             <p>
-              You arrive at an abandoned outpost with no signs of life. What should you do?
+              {story}
             </p>
           </div>
           <div className={classes.container}>
             <ol id="options">
-              <li onClick={this.handleDec1}>Look for signs of life.</li>
-              <li onClick={this.handleDec2}>Shoot at it for fun.</li>
-              <li onClick={this.handleDec3}>Leave</li>
+              <li onClick={this.handleDec1}>{choices[0]}</li>
+              <li onClick={this.handleDec2}>{choices[1]}</li>
+              <li onClick={this.handleDec3}>{choices[2]}</li>
             </ol>
           </div>
           {this.state.showOutcome && (
@@ -195,7 +201,11 @@ class StoryMenu extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  health: state.player.health
+  health: state.player.health,
+  title: state.story.title,
+  story: state.story.story,
+  choices: state.story.choices,
+  consequence: state.story.consequence
 })
 
 const mapDispatchToProps = {
