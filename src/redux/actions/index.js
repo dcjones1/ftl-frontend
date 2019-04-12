@@ -22,6 +22,7 @@ export const FETCH_LEVEL = 'FETCH_LEVEL'
 export const BEGIN_LEVEL = 'BEGIN_LEVEL'
 export const OPEN_MENU = 'OPEN_MENU'
 export const CLOSE_MENU = 'CLOSE_MENU'
+export const FIRE_MISSILE = 'FIRE_MISSILE'
 
 export const fetchLevel = (level) => {
   return dispatch => {
@@ -134,4 +135,8 @@ export const openMenu = () => ({
 
 export const closeMenu = () => ({
   type: CLOSE_MENU
+})
+
+export const fireMissile = () => ({
+  type: FIRE_MISSILE
 })

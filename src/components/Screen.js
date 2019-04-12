@@ -5,8 +5,7 @@ import HealthBar from './HealthBar'
 import Health from './Health'
 import WeaponBar from './WeaponBar'
 import Weapon from './Weapon'
-// import Kestrel from './Kestrel'
-import Kestrel2 from './Kestrel2'
+import Kestrel from './Kestrel'
 import EnemyShip from './EnemyShip'
 // import Power from './Power'
 import ShieldPower from './ShieldPower'
@@ -15,6 +14,7 @@ import Shield from './Shield'
 import EnemyShield from './EnemyShield'
 import Laser from './Laser'
 import EnemyLaser from './EnemyLaser'
+import Missile from './Missile'
 import Scrap from './Scrap'
 import ShopButton from './ShopButton'
 import Score from './Score'
@@ -109,6 +109,16 @@ const Screen = (props) => {
     }
   }
 
+  const missiles = []
+  for(let i = 0; i < props.missiles; i++) {
+    const missilePosition = {
+      x: 390,
+      y: 415,
+    }
+    missiles.push(<Missile key={i} id={i} lastMissile={props.missiles - 1}
+      position={missilePosition} />)
+  }
+
   const { classes } = props
   return (
     <svg
@@ -132,9 +142,9 @@ const Screen = (props) => {
 
       {lasers}
       {enemyLasers}
+      {missiles}
 
-      {/* <Kestrel /> */}
-      <Kestrel2 />
+      <Kestrel />
       <EnemyShip />
 
       {/* {power} */}
@@ -155,6 +165,8 @@ const Screen = (props) => {
 
       <Score />
 
+      {/* <Missile /> */}
+
     </svg>
   )
 }
@@ -167,6 +179,7 @@ const mapStateToProps = (state) => ({
   health: state.player.health,
   weapons: state.player.weapons,
   lasers: state.player.lasers,
+  missiles: state.player.missiles,
   shield: state.player.shield,
   playerAlive: state.player.playerAlive,
   playerLaserOn: state.player.playerLaserOn,

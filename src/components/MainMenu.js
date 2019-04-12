@@ -18,8 +18,9 @@ const styles = {
   },
   '@media (max-width: 800px)': {
     container: {
+      position: 'absolute',
+      top: '0',
       display: 'block',
-      top: '23%',
       '& p': {
         marginBottom: '7%',
       },
