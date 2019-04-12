@@ -17,6 +17,7 @@ import Laser from './Laser'
 import EnemyLaser from './EnemyLaser'
 import Scrap from './Scrap'
 import ShopButton from './ShopButton'
+import Score from './Score'
 import { setPlayerLaserOn, setPlayerLaserOff, togglePlayerLaser } from '../redux/actions'
 import { connect } from 'react-redux'
 import withStyles from 'react-jss'
@@ -92,9 +93,17 @@ const Screen = (props) => {
   const enemyLasers = []
   if (props.enemyAlive) {
     for(let i = 0; i < props.enemyLasers; i++) {
-      const laserPosition = {
-        x: 1380,
-        y: 362 + i * 10,
+      let laserPosition
+      if (i % 2 === 0) {
+        laserPosition = {
+          x: 1380,
+          y: 362 + i * 10,
+        }
+      } else {
+        laserPosition = {
+          x: 1380,
+          y: 512 - i * 10,
+        }
       }
       enemyLasers.push(<EnemyLaser key={i} id={i} position={laserPosition} enemyLaserOn={props.enemyLaserOn} shield={props.shield} />)
     }
@@ -143,6 +152,8 @@ const Screen = (props) => {
 
       <Scrap scrap={props.scrap} />
       <ShopButton />
+
+      <Score />
 
     </svg>
   )

@@ -48,8 +48,12 @@ export default (state = initialState, action) => {
       return { ...state, playerAlive: false}
 
     case WIN_GAME:
+      let heal = 0
+      if (state.health < 30) {
+        heal = 1
+      }
       return { ...state,
-        health: state.health + 1,
+        health: state.health + heal,
         scrap: state.scrap + Math.floor(Math.random() * 45 + 5),
         playerLaserOn: false
       }

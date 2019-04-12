@@ -58,7 +58,7 @@ const GameWin = (props) => {
   }
 
 
-  const { classes } = props
+  const { classes, score } = props
   return (
     <div className={classes.wrapper}>
       <div className="stars" />
@@ -70,7 +70,7 @@ const GameWin = (props) => {
             You won!!
           </p>
           <p>
-            Score: 10000000
+            Score: {score}
           </p>
           <Link
             className={classes.link}
@@ -85,8 +85,12 @@ const GameWin = (props) => {
   )
 }
 
+const mapStateToProps = (state) => ({
+  score: state.game.score
+})
+
 const mapDispatchToProps = {
   resetGame
 }
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(GameWin))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(GameWin))

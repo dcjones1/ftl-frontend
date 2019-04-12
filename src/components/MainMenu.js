@@ -27,6 +27,7 @@ const styles = {
   },
   column: {
     flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
     textAlign: 'center',
     color: 'white',
     '& p': {
@@ -72,10 +73,10 @@ const MainMenu = (props) => {
             To fire your lasers, press the spacebar or 'autofire' button just once. This turns them on. Do it once more to turn them off. After each game event (opening the shop, moving to the next level), they will turn off and have to be restarted!
           </p>
           <p>
-            There is a shop available to upgrade your shop. Top middle, the button labeled 'Shop'. Click it!
+            There is a shop available to buy upgrades using 'scrap'. Top middle, the button labeled 'Shop'. Click it!
           </p>
           <p>
-            Finally, you can see the level of all your systems on the bottom left. Each bar represents a level. 3 bars, 3 shields, easy!
+            You can see the level of your systems on the bottom left. Each bar represents a level. 3 bars, 3 shields, easy!
           </p>
           <p>
             There will be 5 levels of increasing difficulty to beat.
