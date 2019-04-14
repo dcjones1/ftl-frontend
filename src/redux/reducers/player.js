@@ -8,6 +8,7 @@ const initialState = {
   lasers: 1,
   missiles: 2,
   shield: 1,
+  engineLevel: 1,
   playerLaserOn: false,
   playerAlive: true,
 }
