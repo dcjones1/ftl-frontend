@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { increasePlayerHealth, decreaseScrap, addWeapon, setEnemyLaserOn, increaseShield, closeMenu } from '../redux/actions'
+import { increasePlayerHealth, decreaseScrap, addLaser, setEnemyLaserOn, increaseShield, closeMenu } from '../redux/actions'
 import swal from 'sweetalert'
 import withStyles from 'react-jss'
 
@@ -86,9 +86,9 @@ const Shop = (props) => {
     }
   }
 
-  function buyWeapon() {
+  function buyLaser() {
     if (props.scrap >= 50) {
-      props.addWeapon()
+      props.addLaser()
       props.decreaseScrap(50)
     } else {
       swal('not enough scrap!')
@@ -130,9 +130,9 @@ const Shop = (props) => {
           </button>
           <button
             className={classes.button}
-            onClick={buyWeapon}
+            onClick={buyLaser}
           >
-            Upgrade Weapon: 50 scrap
+            Upgrade Laser: 50 scrap
           </button>
           {/* <button
             className={classes.button}
@@ -153,7 +153,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   increasePlayerHealth,
   decreaseScrap,
-  addWeapon,
+  addLaser,
   setEnemyLaserOn,
   increaseShield,
   closeMenu

@@ -15,7 +15,7 @@ export const DECREASE_ENEMY_SHIELD = 'DECREASE_ENEMY_SHIELD'
 export const INCREASE_ENEMY_SHIELD = 'INCREASE_ENEMY_SHIELD'
 export const INCREASE_SCRAP = 'INCREASE_SCRAP'
 export const DECREASE_SCRAP = 'DECREASE_SCRAP'
-export const ADD_WEAPON = 'ADD_WEAPON'
+export const ADD_LASER = 'ADD_LASER'
 export const ENEMY_LASER_ON = 'ENEMY_LASER_ON'
 export const ENEMY_LASER_OFF = 'ENEMY_LASER_OFF'
 export const FETCH_LEVEL = 'FETCH_LEVEL'
@@ -121,8 +121,8 @@ export const decreaseScrap = (amount) => ({
   amount
 })
 
-export const addWeapon = () => ({
-  type: ADD_WEAPON
+export const addLaser = () => ({
+  type: ADD_LASER
 })
 
 export const beginLevel = () => ({

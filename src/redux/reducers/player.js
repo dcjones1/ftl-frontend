@@ -1,8 +1,9 @@
-import { TOGGLE_PLAYER_LASER, PLAYER_LASER_ON, PLAYER_LASER_OFF, INCREASE_SCRAP, DECREASE_SCRAP, DECREASE_PLAYER_HEALTH, INCREASE_PLAYER_HEALTH, RESET_GAME, LOSE_GAME, WIN_GAME, DECREASE_SHIELD, INCREASE_SHIELD, ADD_WEAPON, FIRE_MISSILE } from '../actions'
+import { TOGGLE_PLAYER_LASER, PLAYER_LASER_ON, PLAYER_LASER_OFF, INCREASE_SCRAP, DECREASE_SCRAP, DECREASE_PLAYER_HEALTH, INCREASE_PLAYER_HEALTH, RESET_GAME, LOSE_GAME, WIN_GAME, DECREASE_SHIELD, INCREASE_SHIELD, ADD_LASER, FIRE_MISSILE } from '../actions'
 
 const initialState = {
   health: 30,
   scrap: 200,
+  pilotLevel: 1,
   weapons: 1,
   lasers: 1,
   missiles: 2,
@@ -39,7 +40,7 @@ export default (state = initialState, action) => {
     case INCREASE_SHIELD:
       return { ...state, shield: state.shield + 1 }
 
-    case ADD_WEAPON:
+    case ADD_LASER:
       return { ...state, lasers: state.lasers + 1 }
 
     case DECREASE_PLAYER_HEALTH:

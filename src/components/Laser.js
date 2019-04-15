@@ -46,7 +46,7 @@ class Laser extends Component {
     const enemyShip = document.querySelector('#enemyShip')
     this.coll = setInterval(() => {
       if (checkCollision(enemyShip, laser)) {
-        if (Math.random() > (0.05 * this.props.enemyEngineLevel)) {
+        if (Math.random() > (0.03 * (this.props.enemyEngineLevel + this.props.enemyPilotLevel))) {
           this.setState({
             x: this.props.position.x,
             y: this.props.position.y
@@ -66,7 +66,7 @@ class Laser extends Component {
     const enemyShield = document.querySelector('#enemyShield')
     this.shieldHit = setInterval(() => {
       if (checkShieldHit(enemyShield, laser, this.props.enemyShield)) {
-        if (Math.random() > (0.05 * this.props.enemyEngineLevel)) {
+        if (Math.random() > (0.03 * (this.props.enemyEngineLevel + this.props.enemyPilotLevel))) {
           this.setState({
             x: this.props.position.x,
             y: this.props.position.y
@@ -130,7 +130,8 @@ class Laser extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  enemyEngineLevel: state.enemy.enemyEngineLevel
+  enemyEngineLevel: state.enemy.enemyEngineLevel,
+  enemyPilotLevel: state.enemy.enemyPilotLevel
 })
 
 const mapDispatchToProps = {
