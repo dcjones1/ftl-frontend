@@ -57,7 +57,7 @@ const EnginePower = (props) => {
         x="255"
         y="1054"
       >
-        {`${(engineLevel + pilotLevel) * 5}% evasion`}
+        {`${(engineLevel + pilotLevel) * 3}% evasion`}
       </text>
     </React.Fragment>
   )
