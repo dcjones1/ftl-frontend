@@ -7,7 +7,6 @@ import WeaponBar from './WeaponBar'
 import Weapon from './Weapon'
 import Kestrel from './Kestrel'
 import EnemyShip from './EnemyShip'
-// import Power from './Power'
 import ShieldPower from './ShieldPower'
 import LaserPower from './LaserPower'
 import EnginePower from './EnginePower'
@@ -43,17 +42,6 @@ const Screen = (props) => {
     }
     stars.push(<Star key={i} position={starPosition} />)
   }
-
-
-  // const power = []
-  // for(let i = 0; i < props.power; i++) {
-  //   const powerPosition = {
-  //     x: 20,
-  //     y: 1040 - i * 15,
-  //   }
-  //   power.push(<Power key={i} position={powerPosition} />)
-  // }
-
 
   const health = []
   for(let i = 0; i < props.health; i++) {
@@ -148,7 +136,6 @@ const Screen = (props) => {
       <Kestrel />
       <EnemyShip />
 
-      {/* {power} */}
       <LaserPower />
       <ShieldPower />
       <EnginePower />
@@ -167,8 +154,6 @@ const Screen = (props) => {
 
       <Score />
 
-      {/* <Missile /> */}
-
     </svg>
   )
 }
@@ -176,7 +161,6 @@ const Screen = (props) => {
 const mapStateToProps = (state) => ({
   // prop: the equiv state
   playing: state.game.playing,
-  power: state.player.power,
   scrap: state.player.scrap,
   health: state.player.health,
   weapons: state.player.weapons,
