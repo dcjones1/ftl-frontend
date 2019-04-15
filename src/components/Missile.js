@@ -11,16 +11,19 @@ class Missile extends Component {
   }
 
   launchMissile = (e) => {
-    console.log('hey')
-    this.launchIntervals = {}
-    if (this.props.id === this.props.lastMissile && e.key === 'f') {
-      this.launchIntervals[this.props.id] = setInterval(() => {
-        if (this.state.x < 1600) {
-          this.setState(state => ({
-            x: state.x += 1
-          }))
+    if (!this.props.menuOpen) {
+      this.launchIntervals = {}
+      if (this.props.id === this.props.lastMissile) {
+        if (e.key === 'f' || e.type === 'click') {
+          this.launchIntervals[this.props.id] = setInterval(() => {
+            if (this.state.x < 1600) {
+              this.setState(state => ({
+                x: state.x += 1
+              }))
+            }
+          }, this.state.intervalId)
         }
-      }, this.state.intervalId)
+      }
     }
   }
 
@@ -42,10 +45,12 @@ class Missile extends Component {
     }, this.state.intervalId)
 
     document.addEventListener('keydown', this.launchMissile)
+    document.querySelector('#missileBtn').addEventListener('click', this.launchMissile)
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.fireMissile)
+    document.querySelector('#missileBtn').removeEventListener('click', this.launchMissile)
     clearInterval(this.launchIntervals[this.props.id])
     clearInterval(this.int)
     clearInterval(this.coll)
@@ -77,9 +82,13 @@ class Missile extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  menuOpen: state.game.menuOpen
+})
+
 const mapDispatchToProps = {
   fireMissile,
   decreaseEnemyHealth
 }
 
-export default connect(null, mapDispatchToProps)(Missile)
+export default connect(mapStateToProps, mapDispatchToProps)(Missile)

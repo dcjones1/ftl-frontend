@@ -4,7 +4,8 @@ import Star from './Star'
 import HealthBar from './HealthBar'
 import Health from './Health'
 import WeaponBar from './WeaponBar'
-import Weapon from './Weapon'
+import LaserButton from './LaserButton'
+import MissileButton from './MissileButton'
 import Kestrel from './Kestrel'
 import EnemyShip from './EnemyShip'
 import ShieldPower from './ShieldPower'
@@ -62,14 +63,14 @@ const Screen = (props) => {
     enemyHealth.push(<Health key={i} position={healthPosition} />)
   }
 
-  const weapons = []
-  for(let i = 0; i < props.weapons; i++) {
-    const weaponPosition = {
-      x: 760 + i * 145,
-      y: 940,
-    }
-    weapons.push(<Weapon key={i} position={weaponPosition} togglePlayerLaser={props.togglePlayerLaser} />)
-  }
+  // const weapons = []
+  // for(let i = 0; i < props.weapons; i++) {
+  //   const weaponPosition = {
+  //     x: 760 + i * 150,
+  //     y: 910,
+  //   }
+  //   weapons.push(<Weapon key={i} position={weaponPosition} togglePlayerLaser={props.togglePlayerLaser} />)
+  // }
 
   const lasers = []
   for(let i = 0; i < props.lasers; i++) {
@@ -130,6 +131,10 @@ const Screen = (props) => {
         <EnemyShield show={false} />
       )}
 
+      <WeaponBar />
+      <LaserButton />
+      <MissileButton />
+
       {lasers}
       {enemyLasers}
       {missiles}
@@ -148,8 +153,6 @@ const Screen = (props) => {
       <HealthBar />
       {enemyHealth}
 
-      <WeaponBar />
-      {weapons}
 
       <Scrap scrap={props.scrap} />
       <ShopButton />
