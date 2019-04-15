@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { decreasePlayerHealth, decreaseShield, increaseShield } from '../redux/actions'
 import { checkCollision, checkShieldHit } from '../helpers/formulas'
+import Miss from './Miss'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -44,25 +45,43 @@ class EnemyLaser extends Component {
     const playerShip = document.querySelector('#kestrel')
     this.coll = setInterval(() => {
       if (checkCollision(playerShip, enemyLaser)) {
-        this.setState({
-          x: this.props.position.x,
-          y: this.props.position.y
-        })
-        this.props.decreasePlayerHealth()
+        if (Math.random() > (0.05 * this.props.engineLevel)) {
+          this.setState({
+            x: this.props.position.x,
+            y: this.props.position.y
+          })
+          this.props.decreasePlayerHealth()
+        } else {
+          this.setState({
+            x: this.props.position.x,
+            y: this.props.position.y,
+            showMiss: true
+          })
+          setTimeout(() => this.setState({showMiss: false}), 1000)
+        }
       }
     }, this.state.intervalId)
 
     const shield = document.querySelector('#shield')
     this.shieldHit = setInterval(() => {
       if (checkShieldHit(shield, enemyLaser, this.props.shield)) {
-        this.setState({
-          x: this.props.position.x,
-          y: this.props.position.y
-        })
-        this.props.decreaseShield()
-        setTimeout(() => {
-          this.props.increaseShield()
-        }, 1000)
+        if (Math.random() > (0.05 * this.props.engineLevel)) {
+          this.setState({
+            x: this.props.position.x,
+            y: this.props.position.y
+          })
+          this.props.decreaseShield()
+          setTimeout(() => {
+            this.props.increaseShield()
+          }, 1000)
+        } else {
+          this.setState({
+            x: this.props.position.x,
+            y: this.props.position.y,
+            showMiss: true
+          })
+          setTimeout(() => this.setState({showMiss: false}), 1000)
+        }
       }
     }, this.state.intervalId)
   }
@@ -103,12 +122,15 @@ class EnemyLaser extends Component {
             fill="#ffa500"
           />
         )}
-
-
+        {this.state.showMiss && <Miss position={{x: 870, y: 350}} />}
       </React.Fragment>
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  engineLevel: state.player.engineLevel
+})
 
 const mapDispatchToProps = {
   decreasePlayerHealth,
@@ -116,4 +138,4 @@ const mapDispatchToProps = {
   increaseShield
 }
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(EnemyLaser))
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(EnemyLaser))
