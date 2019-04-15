@@ -3,7 +3,6 @@ import { TOGGLE_PLAYER_LASER, PLAYER_LASER_ON, PLAYER_LASER_OFF, INCREASE_SCRAP,
 const initialState = {
   health: 30,
   scrap: 200,
-  power: 6,
   weapons: 1,
   lasers: 1,
   missiles: 2,
