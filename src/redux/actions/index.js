@@ -23,6 +23,9 @@ export const BEGIN_LEVEL = 'BEGIN_LEVEL'
 export const OPEN_MENU = 'OPEN_MENU'
 export const CLOSE_MENU = 'CLOSE_MENU'
 export const FIRE_MISSILE = 'FIRE_MISSILE'
+export const ADD_ENGINE = 'ADD_ENGINE'
+export const ADD_MISSILE = 'ADD_MISSILE'
+export const ADD_PILOT = 'ADD_PILOT'
 
 export const fetchLevel = (level) => {
   return dispatch => {
@@ -139,4 +142,16 @@ export const closeMenu = () => ({
 
 export const fireMissile = () => ({
   type: FIRE_MISSILE
+})
+
+export const addMissile = () => ({
+  type: ADD_MISSILE
+})
+
+export const addEngine = () => ({
+  type: ADD_ENGINE
+})
+
+export const addPilot = () => ({
+  type: ADD_PILOT
 })

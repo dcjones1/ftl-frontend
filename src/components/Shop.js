@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { increasePlayerHealth, decreaseScrap, addLaser, setEnemyLaserOn, increaseShield, closeMenu } from '../redux/actions'
+import { increasePlayerHealth, decreaseScrap, addLaser, setEnemyLaserOn, increaseShield, closeMenu, addMissile, addEngine, addPilot } from '../redux/actions'
 import swal from 'sweetalert'
 import withStyles from 'react-jss'
 
@@ -33,6 +33,7 @@ const styles = {
     border: '1px solid #888',
     width: '80%',
     height: '80%',
+    overflow: 'auto'
   },
   close: {
     color: '#aaa',
@@ -104,6 +105,33 @@ const Shop = (props) => {
     }
   }
 
+  function buyEngine() {
+    if (props.scrap >= 50) {
+      props.addEngine()
+      props.decreaseScrap(50)
+    } else {
+      swal('not enough scrap!')
+    }
+  }
+
+  function buyMissile() {
+    if (props.scrap >= 50) {
+      props.addMissile()
+      props.decreaseScrap(25)
+    } else {
+      swal('not enough scrap!')
+    }
+  }
+
+  function buyPilot() {
+    if (props.scrap >= 50) {
+      props.addPilot()
+      props.decreaseScrap(50)
+    } else {
+      swal('not enough scrap!')
+    }
+  }
+
 
   const { classes } = props
   return (
@@ -124,6 +152,12 @@ const Shop = (props) => {
           </button>
           <button
             className={classes.button}
+            onClick={buyMissile}
+          >
+            Buy Missile: 25 scrap
+          </button>
+          <button
+            className={classes.button}
             onClick={buyShield}
           >
             Upgrade Shield: 100 scrap
@@ -134,11 +168,18 @@ const Shop = (props) => {
           >
             Upgrade Laser: 50 scrap
           </button>
-          {/* <button
+          <button
             className={classes.button}
-            >
-            Upgrade Engine: 75 scrap
-          </button> */}
+            onClick={buyEngine}
+          >
+            Upgrade Engine: 50 scrap
+          </button>
+          <button
+            className={classes.button}
+            onClick={buyPilot}
+          >
+            Upgrade Pilot: 50 scrap
+          </button>
         </div>
       </div>
     </div>
@@ -156,7 +197,10 @@ const mapDispatchToProps = {
   addLaser,
   setEnemyLaserOn,
   increaseShield,
-  closeMenu
+  closeMenu,
+  addEngine,
+  addMissile,
+  addPilot,
 }
 
 
