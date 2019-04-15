@@ -7,34 +7,39 @@ const styles = {
     fill: 'black',
     fontSize: '1.6rem',
     userSelect: 'none',
+  },
+  evade: {
+    fill: 'white',
+    fontSize: '1.2rem',
+    userSelect: 'none',
   }
 }
 
 const EnginePower = (props) => {
 
-  const shields = []
-  for (let i = 0; i < props.engineLevel; i++) {
-    engineLevel.push(
-      <rect
-        width="40"
-        height="10"
-        x="150"
-        y={1000 - 15 * i}
-        fill="#7CFC00"
-        strokeWidth="1.5"
-        stroke="#fff"
-        key={i}
-      />
-    )
-  }
+  // const engines = []
+  // for (let i = 0; i < props.engineLevel; i++) {
+  //   engines.push(
+  //     <rect
+  //       width="40"
+  //       height="10"
+  //       x="50"
+  //       y={1000 - 15 * i}
+  //       fill="#7CFC00"
+  //       strokeWidth="1.5"
+  //       stroke="#fff"
+  //       key={i}
+  //     />
+  //   )
+  // }
 
   const { classes } = props
   return (
     <React.Fragment>
-      {engineLevel}
+      {/* {engines} */}
       <circle
         r="23"
-        cx="170"
+        cx="220"
         cy="1040"
         fill="#7CFC00"
         stroke="#000"
@@ -46,6 +51,13 @@ const EnginePower = (props) => {
         y="1054"
       >
         E
+      </text>
+      <text
+        className={classes.evade}
+        x="255"
+        y="1054"
+      >
+        5% Evasion
       </text>
     </React.Fragment>
   )

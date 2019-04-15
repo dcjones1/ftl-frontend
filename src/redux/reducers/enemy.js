@@ -3,6 +3,7 @@ import { ENEMY_LASER_ON, ENEMY_LASER_OFF, DECREASE_ENEMY_HEALTH, RESET_GAME, WIN
 const initialState = {
   enemyHealth: 10,
   enemyLasers: 1,
+  enemyEngineLevel: 1,
   enemyAlive: true,
   enemyLaserOn: true,
   enemyShield: 1,
