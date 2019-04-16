@@ -1,4 +1,4 @@
-import { TOGGLE_PLAYER_LASER, PLAYER_LASER_ON, PLAYER_LASER_OFF, INCREASE_SCRAP, DECREASE_SCRAP, DECREASE_PLAYER_HEALTH, INCREASE_PLAYER_HEALTH, RESET_GAME, LOSE_GAME, WIN_GAME, DECREASE_SHIELD, INCREASE_SHIELD, ADD_LASER, ADD_ENGINE, ADD_MISSILE, ADD_PILOT, FIRE_MISSILE } from '../actions'
+import { TOGGLE_PLAYER_LASER, PLAYER_LASER_ON, PLAYER_LASER_OFF, INCREASE_SCRAP, DECREASE_SCRAP, DECREASE_PLAYER_HEALTH, INCREASE_PLAYER_HEALTH, RESET_GAME, LOSE_GAME, WIN_GAME, DECREASE_SHIELD, INCREASE_SHIELD, ADD_LASER, REMOVE_LASER, ADD_ENGINE, REMOVE_ENGINE, ADD_MISSILE, ADD_PILOT, REMOVE_PILOT, FIRE_MISSILE } from '../actions'
 
 const initialState = {
   health: 30,
@@ -43,14 +43,23 @@ export default (state = initialState, action) => {
     case ADD_LASER:
       return { ...state, lasers: state.lasers + 1 }
 
+    case REMOVE_LASER:
+      return { ...state, lasers: state.lasers - 1 }
+
     case ADD_ENGINE:
       return { ...state, engineLevel: state.engineLevel + 1 }
+
+    case REMOVE_ENGINE:
+      return { ...state, engineLevel: state.engineLevel - 1 }
 
     case ADD_MISSILE:
       return { ...state, missiles: state.missiles + 1 }
 
     case ADD_PILOT:
       return { ...state, pilotLevel: state.pilotLevel + 1 }
+
+    case REMOVE_PILOT:
+      return { ...state, pilotLevel: state.pilotLevel - 1 }
 
     case DECREASE_PLAYER_HEALTH:
       return { ...state, health: state.health - 1 }

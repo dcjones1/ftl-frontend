@@ -20,6 +20,8 @@ import Missile from './Missile'
 import Scrap from './Scrap'
 import ShopButton from './ShopButton'
 import Score from './Score'
+import ShipTile from './ShipTile'
+import Crew from './Crew'
 import { setPlayerLaserOn, setPlayerLaserOff, togglePlayerLaser } from '../redux/actions'
 import { connect } from 'react-redux'
 import withStyles from 'react-jss'
@@ -158,7 +160,29 @@ const Screen = (props) => {
       <ShopButton />
 
       <Score />
-      
+
+      <ShipTile position={{ x: 290, y: 355 }} id={1} />
+      <ShipTile position={{ x: 355, y: 355 }} id={2} />
+      <ShipTile position={{ x: 420, y: 355 }} id={'s'} letter={'s'} />
+      <ShipTile position={{ x: 485, y: 355 }} id={3} />
+      <ShipTile position={{ x: 550, y: 355 }} id={4} />
+
+      <ShipTile position={{ x: 290, y: 420 }} id={'e'} letter={'e'}  />
+      <ShipTile position={{ x: 355, y: 420 }} id={5} />
+      <ShipTile position={{ x: 420, y: 420 }} id={6} />
+      <ShipTile position={{ x: 485, y: 420 }} id={7} />
+      <ShipTile position={{ x: 550, y: 420 }} id={8} />
+      <ShipTile position={{ x: 550, y: 420 }} id={9} />
+      <ShipTile position={{ x: 615, y: 420 }} id={10} />
+      <ShipTile position={{ x: 680, y: 420 }} id={'p'} letter={'p'} />
+
+      <ShipTile position={{ x: 290, y: 485 }} id={11} />
+      <ShipTile position={{ x: 355, y: 485 }} id={12} />
+      <ShipTile position={{ x: 420, y: 485 }} id={'l'} letter={'l'} />
+      <ShipTile position={{ x: 485, y: 485 }} id={13} />
+      <ShipTile position={{ x: 550, y: 485 }} id={14} />
+
+      <Crew position={{ x: 710, y: 450 }}/>
     </svg>
   )
 }

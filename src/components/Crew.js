@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { checkCollision } from '../helpers/formulas'
+import { increaseShield, decreaseShield, addLaser, removeLaser, addEngine, removeEngine, addPilot, removePilot } from '../redux/actions'
 import withStyles from 'react-jss'
 
 const styles = {
@@ -14,7 +17,8 @@ class Crew extends Component {
     x: this.props.position.x,
     y: this.props.position.y,
     selected: false,
-    fill: '#09f'
+    fill: '#09f',
+    onTile: ''
   }
 
   handleKey = (e) => {
@@ -74,11 +78,81 @@ class Crew extends Component {
   componentDidMount() {
     // document.addEventListener('click', this.handleClick)
     document.addEventListener('keypress', this.handleKey)
+    const crew = document.querySelector('#crew1')
+    const e = document.querySelector('#e')
+    const s = document.querySelector('#s')
+    const l = document.querySelector('#l')
+    const p = document.querySelector('#p')
+    let i = 1
+    this.sys = setInterval(() => {
+      if (checkCollision(crew, e)) {
+        if (i === 1) {
+          this.setState({
+            onTile: 'e'
+          })
+          this.props.addEngine()
+        }
+        i++
+      } else if (checkCollision(crew, s)) {
+        if (i === 1) {
+          this.setState({
+            onTile: 's'
+          })
+          this.props.increaseShield()
+        }
+        i++
+      } else if (checkCollision(crew, l)) {
+        if (i === 1) {
+          this.setState({
+            onTile: 'l'
+          })
+          this.props.addLaser()
+        }
+        i++
+      } else if (checkCollision(crew, p)) {
+        if (i === 1) {
+          this.setState({
+            onTile: 'p'
+          })
+          this.props.addPilot()
+        }
+        i++
+      } else {
+        switch (this.state.onTile) {
+
+          case 'e':
+            this.setState({ onTile: '' })
+            this.props.removeEngine()
+            break
+
+          case 's':
+            this.setState({ onTile: '' })
+            this.props.decreaseShield()
+            break
+
+
+          case 'l':
+            this.setState({ onTile: '' })
+            this.props.removeLaser()
+            break
+
+          case 'p':
+            this.setState({ onTile: '' })
+            this.props.removePilot()
+            break
+
+          default:
+            return null
+        }
+        i = 1
+      }
+    }, this.state.intervalId)
   }
 
   componentWillUnmount() {
     // document.removeEventListener('click', this.handleClick)
     document.removeEventListener('keypress', this.handleKey)
+    clearInterval(this.sys)
   }
 
   // handleClick = (e) => {
@@ -111,6 +185,7 @@ class Crew extends Component {
     const { classes } = this.props
     return (
       <g
+        id="crew1"
         onClick={this.select}
       >
         <circle
@@ -133,4 +208,15 @@ class Crew extends Component {
     }
 }
 
-export default withStyles(styles)(Crew)
+const mapDispatchToProps = {
+  increaseShield,
+  decreaseShield,
+  addEngine,
+  removeEngine,
+  addLaser,
+  removeLaser,
+  addPilot,
+  removePilot
+}
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Crew))

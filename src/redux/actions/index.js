@@ -16,6 +16,7 @@ export const INCREASE_ENEMY_SHIELD = 'INCREASE_ENEMY_SHIELD'
 export const INCREASE_SCRAP = 'INCREASE_SCRAP'
 export const DECREASE_SCRAP = 'DECREASE_SCRAP'
 export const ADD_LASER = 'ADD_LASER'
+export const REMOVE_LASER = 'REMOVE_LASER'
 export const ENEMY_LASER_ON = 'ENEMY_LASER_ON'
 export const ENEMY_LASER_OFF = 'ENEMY_LASER_OFF'
 export const FETCH_LEVEL = 'FETCH_LEVEL'
@@ -24,8 +25,10 @@ export const OPEN_MENU = 'OPEN_MENU'
 export const CLOSE_MENU = 'CLOSE_MENU'
 export const FIRE_MISSILE = 'FIRE_MISSILE'
 export const ADD_ENGINE = 'ADD_ENGINE'
+export const REMOVE_ENGINE = 'REMOVE_ENGINE'
 export const ADD_MISSILE = 'ADD_MISSILE'
 export const ADD_PILOT = 'ADD_PILOT'
+export const REMOVE_PILOT = 'REMOVE_PILOT'
 
 export const fetchLevel = (level) => {
   return dispatch => {
@@ -128,6 +131,10 @@ export const addLaser = () => ({
   type: ADD_LASER
 })
 
+export const removeLaser = () => ({
+  type: REMOVE_LASER
+})
+
 export const beginLevel = () => ({
   type: BEGIN_LEVEL
 })
@@ -152,6 +159,14 @@ export const addEngine = () => ({
   type: ADD_ENGINE
 })
 
+export const removeEngine = () => ({
+  type: REMOVE_ENGINE
+})
+
 export const addPilot = () => ({
   type: ADD_PILOT
+})
+
+export const removePilot = () => ({
+  type: REMOVE_PILOT
 })
