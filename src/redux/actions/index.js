@@ -38,7 +38,7 @@ export const fetchLevel = (level) => {
     } else {
       realLev = level % 3
     }
-    fetch(`https://c-plus-plus-backend.herokuapp.com/api/v1/levels/${realLev}`)
+    fetch(`http://localhost:3000/api/v1/levels/${realLev}`)
     .then(res => res.json())
     .then(data => {
       dispatch({
