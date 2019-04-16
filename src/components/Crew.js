@@ -26,7 +26,7 @@ class Crew extends Component {
       switch (e.key) {
 
       case "a":
-        if (this.state.x > 320) {
+        if (this.state.x > 340) {
           this.setState(state => ({
             x: state.x - 65
           }))
@@ -78,7 +78,7 @@ class Crew extends Component {
   componentDidMount() {
     // document.addEventListener('click', this.handleClick)
     document.addEventListener('keypress', this.handleKey)
-    const crew = document.querySelector('#crew1')
+    const crew = document.querySelector(`#crew${this.props.id}`)
     const e = document.querySelector('#e')
     const s = document.querySelector('#s')
     const l = document.querySelector('#l')
@@ -182,10 +182,11 @@ class Crew extends Component {
   }
 
   render() {
-    const { classes } = this.props
+    console.log(this.props.position)
+    const { classes, id } = this.props
     return (
       <g
-        id="crew1"
+        id={`crew${id}`}
         onClick={this.select}
       >
         <circle
@@ -198,10 +199,10 @@ class Crew extends Component {
         />
         <text
           className={classes.text}
-          x={this.state.x - 12}
+          x={this.state.x - 10}
           y={this.state.y + 12}
         >
-          1
+          {id}
         </text>
       </g>
       )

@@ -4,6 +4,7 @@ const initialState = {
   health: 30,
   scrap: 200,
   pilotLevel: 1,
+  crew: 2,
   weapons: 1,
   lasers: 1,
   missiles: 2,

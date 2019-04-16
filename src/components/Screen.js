@@ -112,6 +112,17 @@ const Screen = (props) => {
       position={missilePosition} />)
   }
 
+  const crew = []
+  for(let i = 0; i < props.crew; i++) {
+    const crewPosition = {
+      x: 712 - i * 65,
+      y: 450,
+    }
+    crew.push(<Crew key={i} id={i + 1} position={crewPosition} />)
+  }
+
+
+
   const { classes } = props
   return (
     <svg
@@ -182,7 +193,11 @@ const Screen = (props) => {
       <ShipTile position={{ x: 485, y: 485 }} id={13} />
       <ShipTile position={{ x: 550, y: 485 }} id={14} />
 
-      <Crew position={{ x: 710, y: 450 }}/>
+      {crew}
+      {/*
+        <Crew position={{ x: 710, y: 450 }} id={1} />
+        <Crew position={{ x: 645, y: 450 }} id={2} />
+      */}
     </svg>
   )
 }
@@ -190,6 +205,7 @@ const Screen = (props) => {
 const mapStateToProps = (state) => ({
   // prop: the equiv state
   playing: state.game.playing,
+  crew: state.player.crew,
   scrap: state.player.scrap,
   health: state.player.health,
   weapons: state.player.weapons,
