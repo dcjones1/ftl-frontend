@@ -115,7 +115,7 @@ const Shop = (props) => {
   }
 
   function buyMissile() {
-    if (props.scrap >= 50) {
+    if (props.scrap >= 25) {
       props.addMissile()
       props.decreaseScrap(25)
     } else {
