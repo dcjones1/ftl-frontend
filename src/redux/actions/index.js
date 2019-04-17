@@ -29,22 +29,23 @@ export const REMOVE_ENGINE = 'REMOVE_ENGINE'
 export const ADD_MISSILE = 'ADD_MISSILE'
 export const ADD_PILOT = 'ADD_PILOT'
 export const REMOVE_PILOT = 'REMOVE_PILOT'
+export const SET_ENEMY = 'SET_ENEMY'
 
 export const fetchLevel = (level) => {
   return dispatch => {
-    let realLev
-    if (level % 3 === 0) {
-      realLev = 3
-    } else {
-      realLev = level % 3
-    }
-    fetch(`http://localhost:3000/api/v1/levels/${realLev}`)
+    fetch(`http://localhost:3000/api/v1/levels/${level}`)
     .then(res => res.json())
     .then(data => {
       dispatch({
         type: FETCH_LEVEL,
         data
       })
+      setTimeout(() => {
+        dispatch({
+          type: SET_ENEMY,
+          payload: data.ships[0]
+        })
+      }, 1000)
     })
   }
 }

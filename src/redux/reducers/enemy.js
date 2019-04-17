@@ -1,7 +1,7 @@
-import { ENEMY_LASER_ON, ENEMY_LASER_OFF, DECREASE_ENEMY_HEALTH, RESET_GAME, WIN_GAME, DECREASE_ENEMY_SHIELD, INCREASE_ENEMY_SHIELD, BEGIN_LEVEL } from '../actions'
+import { ENEMY_LASER_ON, ENEMY_LASER_OFF, DECREASE_ENEMY_HEALTH, RESET_GAME, WIN_GAME, DECREASE_ENEMY_SHIELD, INCREASE_ENEMY_SHIELD, BEGIN_LEVEL, SET_ENEMY } from '../actions'
 
 const initialState = {
-  enemyHealth: 10,
+  enemyHealth: 9,
   enemyPilotLevel: 1,
   enemyLasers: 1,
   enemyEngineLevel: 1,
@@ -12,6 +12,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
+    case SET_ENEMY:
+    console.log(action.payload.shields)
+      return { ...state,
+        enemyHealth: action.payload.health,
+        enemyEngineLevel: action.payload.engineLevel,
+        enemyPilotLevel: action.payload.pilotLevel,
+        enemyShield: action.payload.shields,
+        enemyLasers: action.payload.weapons[0].shots,
+      }
 
     case ENEMY_LASER_ON:
       return { ...state, enemyLaserOn: true }
@@ -32,7 +42,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         enemyHealth: 10,
-        enemyLasers: state.enemyLasers + 1,
         enemyLaserOn: false,
       }
 

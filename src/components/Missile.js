@@ -14,10 +14,11 @@ class Missile extends Component {
 
   launchMissile = (e) => {
     if (!this.props.menuOpen) {
-      this.launchIntervals = {}
+      // this.launchIntervals = {}
       if (this.props.id === this.props.lastMissile) {
         if (e.key === 'f' || e.type === 'click') {
-          this.launchIntervals[this.props.id] = setInterval(() => {
+          // this.launchIntervals[this.props.id] = setInterval(() => {
+          this.launchIntervals = setInterval(() => {
             if (this.state.x < 1600) {
               this.setState(state => ({
                 x: state.x += 1
@@ -36,7 +37,8 @@ class Missile extends Component {
       let i = 1
       if (checkCollision(enemyShip, missile)) {
         if (Math.random() > (0.03 * (this.props.enemyEngineLevel + this.props.enemyPilotLevel))) {
-          clearInterval(this.launchIntervals[this.props.id])
+          // clearInterval(this.launchIntervals[this.props.id])
+          clearInterval(this.launchIntervals)
           this.setState({
             x: this.props.position.x,
             y: this.props.position.y
@@ -47,7 +49,8 @@ class Missile extends Component {
           this.props.decreaseEnemyHealth()
           i++
         } else {
-          clearInterval(this.launchIntervals[this.props.id])
+          // clearInterval(this.launchIntervals[this.props.id])
+          clearInterval(this.launchIntervals)
           this.setState({
             x: this.props.position.x,
             y: this.props.position.y,
@@ -73,7 +76,8 @@ class Missile extends Component {
   componentWillUnmount() {
     document.removeEventListener('keydown', this.fireMissile)
     document.querySelector('#missileBtn').removeEventListener('click', this.launchMissile)
-    clearInterval(this.launchIntervals[this.props.id])
+    // clearInterval(this.launchIntervals[this.props.id])
+    clearInterval(this.launchIntervals)
     clearInterval(this.int)
     clearInterval(this.coll)
   }

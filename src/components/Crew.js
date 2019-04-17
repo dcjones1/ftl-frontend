@@ -182,7 +182,6 @@ class Crew extends Component {
   }
 
   render() {
-    console.log(this.props.position)
     const { classes, id } = this.props
     return (
       <g

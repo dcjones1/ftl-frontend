@@ -33,7 +33,7 @@ class Game extends Component {
 
     } else if (this.props.enemyHealth === 0 && this.props.currentLevel === 5) {
       this.props.actuallyWinGame()
-      
+
     } else if (this.props.enemyHealth === 0) {
       this.props.winGame()
       this.props.fetchLevel(this.props.currentLevel)

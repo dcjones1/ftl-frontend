@@ -27,7 +27,7 @@ class Laser extends Component {
           }))
         } else {
           this.setState(state=> ({
-            x: state.x += 6,
+            x: state.x += 5,
             y: state.y -= 0
           }))
         }
@@ -110,6 +110,16 @@ class Laser extends Component {
             strokeWidth="0.2"
             fill="#0eed79"
           />
+          // implement at a future date
+          // {/* <animateTransform
+          //     attributeName="transform"
+          //     attributeType="XML"
+          //     type="translate"
+          //     from="0 0"
+          //     to={`${this.state.x} 0`}
+          //     dur="1s"
+          //     repeatCount="indefinite"
+          // /> */}
         ) : (
           <ellipse
             id={`laser${this.props.id}`}
