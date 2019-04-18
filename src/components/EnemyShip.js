@@ -7,9 +7,9 @@ const EnemyShip = () => {
         id="enemyShip"
         transform="rotate(180)"
         style={{isolation: 'isolate'}}
-        viewBox="0 0 1350 1350"
-        x="590"
-        y="110"
+        viewBox="0 0 1500 1500"
+        x="680"
+        y="130"
         >
         <defs><clipPath id="_clipPath_UPQHq0kTQFVvU8HHGUtvPBAjpDDLCo7l">
           <rect width="1000" height="1000"/></clipPath>
