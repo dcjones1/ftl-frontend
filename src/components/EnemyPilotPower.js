@@ -15,11 +15,11 @@ const styles = {
   }
 }
 
-const EnginePower = (props) => {
+const EnemyPilotPower = (props) => {
 
-  // const engines = []
-  // for (let i = 0; i < props.engineLevel; i++) {
-  //   engines.push(
+  // const pilots = []
+  // for (let i = 0; i < props.pilotLevel; i++) {
+  //   pilots.push(
   //     <rect
   //       width="40"
   //       height="10"
@@ -33,39 +33,31 @@ const EnginePower = (props) => {
   //   )
   // }
 
-  const { classes, engineLevel, pilotLevel } = props
+  const { classes } = props
   return (
     <React.Fragment>
-      {/* {engines} */}
+      {/* {pilots} */}
       <circle
         r="23"
-        cx="370"
-        cy="1040"
-        fill="#7CFC00"
+        cx="1550"
+        cy="990"
+        fill="#f00"
         stroke="#000"
         strokeWidth="1"
       />
       <text
         className={classes.text}
-        x="359"
-        y="1054"
+        x="1539"
+        y="1004"
       >
-        E
-      </text>
-      <text
-        className={classes.evade}
-        x="405"
-        y="1054"
-      >
-        {`${(engineLevel + pilotLevel) * 3}% evasion`}
+        P
       </text>
     </React.Fragment>
   )
 }
 
 const mapStateToProps = (state) => ({
-  engineLevel: state.player.engineLevel,
-  pilotLevel: state.player.pilotLevel
+  enemyPilotLevel: state.enemy.enemyPilotLevel
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(EnginePower))
+export default connect(mapStateToProps)(withStyles(styles)(EnemyPilotPower))

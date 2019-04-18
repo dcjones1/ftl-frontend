@@ -39,7 +39,7 @@ const PilotPower = (props) => {
       {/* {pilots} */}
       <circle
         r="23"
-        cx="220"
+        cx="370"
         cy="990"
         fill="#7CFC00"
         stroke="#000"
@@ -47,7 +47,7 @@ const PilotPower = (props) => {
       />
       <text
         className={classes.text}
-        x="209"
+        x="359"
         y="1004"
       >
         P

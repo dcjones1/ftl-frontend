@@ -21,7 +21,7 @@ class Missile extends Component {
           this.launchIntervals = setInterval(() => {
             if (this.state.x < 1600) {
               this.setState(state => ({
-                x: state.x += 1
+                x: state.x += 2
               }))
             }
           }, this.state.intervalId)

@@ -27,7 +27,7 @@ class Laser extends Component {
           }))
         } else {
           this.setState(state=> ({
-            x: state.x += 5,
+            x: state.x += 4,
             y: state.y -= 0
           }))
         }

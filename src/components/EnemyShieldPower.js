@@ -10,17 +10,17 @@ const styles = {
   }
 }
 
-const LaserPower = (props) => {
+const EnemyShieldPower = (props) => {
 
-  const lasers = []
-  for (let i = 0; i < props.lasers; i++) {
-    lasers.push(
+  const enemyShields = []
+  for (let i = 0; i < props.enemyShield; i++) {
+    enemyShields.push(
       <rect
         width="40"
         height="10"
-        x="250"
+        x="1480"
         y={1000 - 15 * i}
-        fill="#7CFC00"
+        fill="#f00"
         strokeWidth="1.5"
         stroke="#fff"
         key={i}
@@ -31,28 +31,28 @@ const LaserPower = (props) => {
   const { classes } = props
   return (
     <React.Fragment>
-      {lasers}
+      {enemyShields}
       <circle
         r="23"
-        cx="270"
+        cx="1500"
         cy="1040"
-        fill="#7CFC00"
+        fill="#f00"
         stroke="#000"
         strokeWidth="1"
       />
       <text
         className={classes.text}
-        x="259"
+        x="1489"
         y="1054"
       >
-        L
+        S
       </text>
     </React.Fragment>
   )
 }
 
 const mapStateToProps = (state) => ({
-  lasers: state.player.lasers
+  enemyShield: state.enemy.enemyShield
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(LaserPower))
+export default connect(mapStateToProps)(withStyles(styles)(EnemyShieldPower))

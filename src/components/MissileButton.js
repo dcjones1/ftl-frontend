@@ -22,7 +22,7 @@ const LaserButton = (props) => {
       <rect
         height="140"
         width="140"
-        x="910"
+        x="860"
         y="910"
         fill="#FFF"
         strokeWidth="1"
@@ -31,7 +31,7 @@ const LaserButton = (props) => {
       <foreignObject
         width="143"
         height="140"
-        x="911"
+        x="861"
         y="900"
       >
         <p

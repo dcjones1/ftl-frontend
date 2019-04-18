@@ -12,6 +12,10 @@ import ShieldPower from './ShieldPower'
 import LaserPower from './LaserPower'
 import EnginePower from './EnginePower'
 import PilotPower from './PilotPower'
+import EnemyShieldPower from './EnemyShieldPower'
+import EnemyLaserPower from './EnemyLaserPower'
+import EnemyEnginePower from './EnemyEnginePower'
+import EnemyPilotPower from './EnemyPilotPower'
 import Shield from './Shield'
 import EnemyShield from './EnemyShield'
 import Laser from './Laser'
@@ -159,6 +163,11 @@ const Screen = (props) => {
       <ShieldPower />
       <EnginePower />
       <PilotPower />
+
+      <EnemyLaserPower />
+      <EnemyShieldPower />
+      <EnemyEnginePower />
+      <EnemyPilotPower />
 
       <HealthBar player={true} />
       {health}
