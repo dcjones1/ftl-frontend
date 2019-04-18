@@ -13,14 +13,14 @@ const Space = (props) => {
   return (
     <rect
       className={classes.space}
-      x={0}
-      y={0}
-      height="1080"
-      width="1920"
-      // x={-960}
-      // y={-540}
-      // height="2160"
-      // width="3840"
+      // x={0}
+      // y={0}
+      // height="1080"
+      // width="1920"
+      x={-960}
+      y={-540}
+      height="2160"
+      width="3840"
     />
   )
 }
