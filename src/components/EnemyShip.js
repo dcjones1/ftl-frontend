@@ -3,19 +3,40 @@ import React from 'react'
 const EnemyShip = () => {
 
   return (
-    <g
-      id="enemyShip"
-      transform="rotate(180)
-      translate(-1500, -520)
-      "
-    >
-      <path d=" M 0 50 L 14.583 50 C 20.417 50 25 54.583 25 60.417 C 25 66.25 20.417 70.833 14.583 70.833 L 0 70.833 L 0 50 Z  M 0 116.667 L 14.583 116.667 C 20.417 116.667 25 112.083 25 106.25 C 25 100.417 20.417 95.833 14.583 95.833 L 0 95.833 L 0 116.667 Z " fill="rgb(84,110,122)"/>
-      <path d=" M 25 106.25 C 25 100.417 20.417 95.833 14.583 95.833 L 4.167 95.833 L 11.25 116.667 L 14.583 116.667 C 20.417 116.667 25 112.083 25 106.25 Z  M 25 60.417 C 25 54.583 20.417 50 14.583 50 L 11.25 50 L 4.167 70.833 L 14.583 70.833 C 20.417 70.833 25 66.25 25 60.417 Z " fill="rgb(55,71,79)"/>
-      <path d=" M 33.333 158.333 L 8.333 83.333 L 33.333 8.333 L 66.667 8.333 L 66.667 158.333 L 33.333 158.333 Z  M 129.167 12.5 L 129.167 4.167 L 83.333 4.167 L 83.333 12.5 L 129.167 12.5 Z  M 87.5 0 L 62.5 0 C 61.25 2.5 60 5.417 60 8.333 C 60 11.25 60.833 14.167 62.5 16.667 L 87.5 16.667 L 87.5 0 Z  M 129.167 162.5 L 129.167 154.167 L 83.333 154.167 L 83.333 162.5 L 129.167 162.5 Z  M 87.5 150 L 62.5 150 C 61.25 152.5 60 155.417 60 158.333 C 60 161.25 60.833 164.167 62.5 166.667 L 87.5 166.667 L 87.5 150 Z  M 120.833 100 C 141.667 100 166.667 83.333 166.667 83.333 C 166.667 83.333 140.833 66.667 120.833 66.667 L 75 66.667 L 75 100 L 120.833 100 Z " fill="rgb(121,134,203)"/>
-      <path d=" M 95.833 8.333 C 95.833 12.917 92.083 16.667 87.5 16.667 C 82.917 16.667 79.167 12.917 79.167 8.333 C 79.167 3.75 82.917 0 87.5 0 C 92.083 0 95.833 3.75 95.833 8.333 Z  M 87.5 150 C 82.917 150 79.167 153.75 79.167 158.333 C 79.167 162.917 82.917 166.667 87.5 166.667 C 92.083 166.667 95.833 162.917 95.833 158.333 C 95.833 153.75 92.083 150 87.5 150 Z  M 73.333 150 L 29.167 150 C 24.583 150 20.833 153.75 20.833 158.333 C 20.833 162.917 24.583 166.667 29.167 166.667 L 73.333 166.667 C 72.083 164.167 70.833 161.25 70.833 158.333 C 70.833 155.417 71.667 152.5 73.333 150 Z  M 73.333 0 L 29.167 0 C 24.583 0 20.833 3.75 20.833 8.333 C 20.833 12.917 24.583 16.667 29.167 16.667 L 73.333 16.667 C 71.667 14.167 70.833 11.25 70.833 8.333 C 70.833 5.417 71.667 2.5 73.333 0 Z  M 79.167 111.25 L 79.167 87.5 L 104.167 87.5 C 106.25 87.5 108.333 85.417 108.333 83.333 C 108.333 81.25 106.25 79.167 104.167 79.167 L 79.167 79.167 L 79.167 55.417 C 79.167 52.5 76.667 50 73.75 50 L 51.25 50 C 47.917 50 45 51.667 43.333 55 L 29.167 83.333 L 43.333 111.667 C 45 114.583 47.917 116.667 51.25 116.667 L 73.75 116.667 C 76.667 116.667 79.167 114.167 79.167 111.25 Z " fill="rgb(197,202,233)"/>
-      <path d=" M 52.917 100 C 43.75 100 43.75 66.667 52.917 66.667 C 62.083 66.667 69.583 74.167 69.583 83.333 C 69.583 92.5 62.083 100 52.917 100 Z " fill="rgb(26,35,126)"/>
-      <path d=" M 133.333 12.5 L 125 12.5 L 125 4.167 L 133.333 4.167 C 135.833 4.167 137.5 5.833 137.5 8.333 C 137.5 10.833 135.833 12.5 133.333 12.5 Z  M 137.5 158.333 C 137.5 155.833 135.833 154.167 133.333 154.167 L 125 154.167 L 125 162.5 L 133.333 162.5 C 135.833 162.5 137.5 160.833 137.5 158.333 Z " fill="rgb(255,61,0)"/>
-    </g>
+      <svg
+        id="enemyShip"
+        transform="rotate(180)"
+        style={{isolation: 'isolate'}}
+        viewBox="0 0 1350 1350"
+        x="590"
+        y="110"
+        >
+        <defs><clipPath id="_clipPath_UPQHq0kTQFVvU8HHGUtvPBAjpDDLCo7l">
+          <rect width="1000" height="1000"/></clipPath>
+        </defs>
+        <g clip-path="url(#_clipPath_UPQHq0kTQFVvU8HHGUtvPBAjpDDLCo7l)">
+          <path d=" M 799.043 867.524 C 810.669 831.14 824.007 788.795 839.028 740.52 L 799.028 740.524 L 799.022 685.524 L 753.022 685.53 L 753.018 654.53 L 780.015 624.527 L 779.984 362.527 L 752.981 332.53 L 752.976 294.53 L 798.976 294.524 L 798.97 240.524 L 838.97 240.52 L 798.957 132.524 L 533.333 132.556 L 384.957 132.573 L 333.96 156.579 L 286.97 240.584 L 176.97 240.597 L 160.972 255.599 L 160.974 278.599 L 176.974 278.597 L 176.976 294.597 L 295.976 294.583 L 295.979 320.583 L 446.979 320.566 L 446.984 362.566 L 401.987 390.571 L 401.999 491.571 L 402.011 592.571 L 447.015 624.566 L 447.018 654.566 L 296.018 654.583 L 296.022 685.583 L 177.022 685.597 L 177.024 700.597 L 161.024 700.599 L 161.028 740.599 L 177.031 758.597 L 287.032 766.584 L 334.041 846.579 L 385.043 867.573 L 799.043 867.524 Z " fill="rgb(247,171,86)" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 533.333 209.951 L 827 209.951 L 818 184.951 L 561 184.951 L 561 132.476 L 533.333 132.476 L 533.333 209.951 Z " fill="rgb(121,231,253)" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 533.333 790.049 L 823.833 790.049 L 814.93 815.049 L 560.702 815.049 L 560.702 867.524 L 533.333 867.524 L 533.333 790.049 Z " fill="rgb(121,231,253)" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 302 790.049 L 384.957 790.049 L 385.043 846.53 L 334.041 846.53" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 302 209.951 L 384.957 209.951 L 384.957 156.53 L 333.96 156.53" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 385.043 184.951 L 483 184.951 L 483 132.524" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 384.957 815.049 L 483 815.049 L 483 867.476" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 384.957 805.549 L 368.914 805.549 L 368.914 824.549 L 384.871 824.549" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 384.957 173.741 L 368.914 173.741 L 368.914 192.741 L 384.871 192.741" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 752.976 309 L 698 309 L 698 450 L 780.015 450 L 780.015 428 L 720 428 L 720 331.481 L 753.018 331" fill="rgb(121,231,253)" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 447.018 651 L 447.018 630 L 495 630 L 495 533 L 402.011 533 L 402.011 512 L 516 512 L 516 651 L 447.018 651 Z " fill="rgb(121,231,253)" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 384.957 654.53 L 385.043 685.524 L 483 685.524 L 483 651" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 385.043 320.583 L 385.043 294.524 L 483 294.524 L 483 331 L 446.979 331" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 296.018 320.583 L 384.957 255.599 L 698 255.599 L 753.022 309" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 296.022 685.597 L 385.043 740.599 L 698 740.599 L 753.018 685.597" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 752.976 654.583 L 698 592.571 L 698 450" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 402.011 459 L 475 459 L 475 355.527 L 447.018 355.527 L 447.018 338 L 495 338 L 495 478 L 402.011 478 L 402.011 459 Z " fill="rgb(121,231,253)" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 516 651 L 615 592.571 L 615 390.571 L 495 338" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 176.97 278.599 L 302 278.597 L 385.043 255.599" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+          <path d=" M 177.031 700.599 L 286.97 700.599 L 385.043 740.599" fill="none" vector-effect="non-scaling-stroke" stroke-width="1" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        </g>
+      </svg>
   )
 }
 

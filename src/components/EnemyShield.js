@@ -5,7 +5,7 @@ const EnemyShield = (props) => {
   let x, y
   if (show) {
     x = "1420"
-    y = "440"
+    y = "520"
   } else {
     x = "-1000"
     y = "-1000"
@@ -14,8 +14,8 @@ const EnemyShield = (props) => {
     <ellipse
       id="enemyShield"
       stroke="#000000"
-      rx="125"
-      ry="125"
+      rx="345"
+      ry="405"
       cx={x}
       cy={y}
       fillOpacity=".35"
