@@ -105,7 +105,7 @@ class Missile extends Component {
             <line x1="20" y1="34.331" x2="20" y2="44.331" vectorEffect="non-scaling-stroke" strokeWidth="1" stroke="rgb(230,126,47)" strokeLinejoin="miter" strokeLinecap="square" strokeMiterlimit="3"/>
           </g>
         </svg>
-        {this.state.showMiss && <Miss position={{x: 1220, y: 350}} />}
+        {this.state.showMiss && <Miss position={{x: 1070, y: 350}} />}
       </React.Fragment>
     )
   }

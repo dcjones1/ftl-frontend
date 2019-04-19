@@ -133,7 +133,7 @@ class Laser extends Component {
             fill="#0eed79"
           />
         )}
-        {this.state.showMiss && <Miss position={{x: 1220, y: 350}} />}
+        {this.state.showMiss && <Miss position={{x: 1070, y: 350}} />}
       </React.Fragment>
     )
   }
